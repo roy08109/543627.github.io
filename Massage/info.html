@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門資訊 - 澳門桑拿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #d5bd7a, #c8ae67);
+            color: #050505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .back-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(213, 189, 122, 0.3);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #d5bd7a;
+            font-weight: bold;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 5px;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .info-card {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            padding: 30px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(213, 189, 122, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        .info-category {
+            color: #d5bd7a;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .info-title {
+            color: #d5bd7a;
+            font-size: 1.5em;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        .info-content {
+            color: #c0c0c0;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+        .info-details {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(213, 189, 122, 0.2);
+        }
+        .info-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #b0b0b0;
+        }
+        .info-detail-label {
+            color: #d5bd7a;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home">返回首頁</a>
+    <div class="container">
+        <header class="header">
+            <h1>澳門資訊</h1>
+        </header>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-category">水路交通資訊</div>
+                <h2 class="info-title">澳門到香港船期表</h2>
+                <div class="info-content">
+                     澳門(外港/氹仔) 到 香港(上環)
+
+                </div>
+                <div class="info-details">
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">澳門至香港船班</span>
+                        <span>首班07:30 末班23:59 (每30分鐘一班)</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">氹仔至香港船班</span>
+                        <span>首班09:00 末班23:59 (每30分鐘一班)</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">澳門內港碼頭至珠海灣仔口岸</span>
+                        <span>首班07:00至末班22:00(每15分鐘一班)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-category">關口資訊</div>
+                <h2 class="info-title">澳門關口出入時間</h2>
+                <div class="info-content">
+                    掌握澳門各關口的出入時間，方便您安排行程。
+                </div>
+                <div class="info-details">
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">關閘出入境(拱北)</span>
+                        <span>早上6:00~次日1:00</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">青茂口岸</span>
+                        <span>24小時通關(護照不能通關)</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">橫琴澳方口岸</span>
+                        <span>24小時通關</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">港珠澳大橋澳門邊檢大樓</span>
+                        <span>珠澳旅檢大廳：08:00 – 22:00<br>
+                            港澳旅檢大廳：24小時</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-category">關口入境</div>
+                <h2 class="info-title">入境澳門天數</h2>
+                <div class="info-content">
+                    港澳通行證,中國護照過境澳門(入境小票不要掉!用於証明可逗留日期)
+                </div>
+                <div class="info-details">
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">中國護照</span>
+                        <span>首次入境時7天許可；若沒澳門機場前往其他國家，<br>離境30天內第二次入境時，給予2天之逗留許可</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">港澳通行證入澳</span>
+                        <span>港澳通行證入澳給予7天逗留許可</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-category">娛樂資訊</div>
+                <h2 class="info-title">澳門休閒娛樂推薦</h2>
+                <div class="info-content">
+                    為您推薦澳門各類休閒娛樂場所，包括特色按摩、水療等項目。
+                </div>
+                <div class="info-details">
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">開放時間</span>
+                        <span>下午15:00~次日5:00</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">諮詢wechat,line,whatsapp,Telepram</span>
+                        <span>+852-59742108</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

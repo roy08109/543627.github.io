@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理 - 澳門桑拿後台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .admin-title {
+            font-size: 2.5em;
+            color: #d5bd7a;
+            font-weight: bold;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .admin-panel {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            border: 1px solid rgba(213, 189, 122, 0.15);
+            border-radius: 0;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(213, 189, 122, 0.2);
+        }
+
+        .panel-title {
+            color: #d5bd7a;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .add-member-btn {
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            color: #050505;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .add-member-btn:hover {
+            background: linear-gradient(to bottom, #e9d9a8, #d5bd7a);
+            transform: translateY(-2px);
+        }
+
+        .member-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .member-table th,
+        .member-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(213, 189, 122, 0.1);
+        }
+
+        .member-table th {
+            color: #d5bd7a;
+            font-weight: 500;
+            background: rgba(213, 189, 122, 0.1);
+        }
+
+        .member-table tr:hover {
+            background: rgba(213, 189, 122, 0.05);
+        }
+
+        .action-btn {
+            background: transparent;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            color: #d5bd7a;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+        }
+
+        .delete-btn {
+            border-color: rgba(255, 99, 71, 0.3);
+            color: #ff6347;
+        }
+
+        .delete-btn:hover {
+            background: rgba(255, 99, 71, 0.1);
+            border-color: rgba(255, 99, 71, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(15, 15, 15, 0.9));
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid rgba(213, 189, 122, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(213, 189, 122, 0.2);
+        }
+
+        .modal-title {
+            color: #d5bd7a;
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: transparent;
+            border: none;
+            color: #d5bd7a;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #e6d294;
+            transform: scale(1.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #d5bd7a;
+            margin-bottom: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+
+        .social-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            filter: brightness(1) drop-shadow(0 0 15px rgba(213, 189, 122, 0.4));
+        }
+
+        .wechat-hover {
+            display: none;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(5, 5, 5, 0.95);
+            padding: 8px 15px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-hover::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: rgba(5, 5, 5, 0.95);
+            border-left: 1px solid rgba(213, 189, 122, 0.3);
+            border-top: 1px solid rgba(213, 189, 122, 0.3);
+        }
+
+        .wechat-text {
+            color: #d5bd7a;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            color: #d5bd7a;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+        }
+
+        .social-icon-container:hover .wechat-hover {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(213, 189, 122, 0.2);
+            color: #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(213, 189, 122, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            color: #050505;
+            border: none;
+            padding: 12px 25px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to bottom, #e9d9a8, #d5bd7a);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 10px;
+            }
+
+            .member-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">會員管理系統</h1>
+        </div>
+
+        <div class="admin-panel">
+            <div class="panel-header">
+                <h2 class="panel-title">會員列表</h2>
+                <button class="add-member-btn" onclick="openModal('add')">新增會員</button>
+            </div>
+
+            <table class="member-table">
+                <thead>
+                    <tr>
+                        <th>會員ID</th>
+                        <th>姓名</th>
+                        <th>電話</th>
+                        <th>電子郵件</th>
+                        <th>註冊日期</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody">
+                    <!-- 會員數據將通過JavaScript動態插入 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 新增/編輯會員模態框 -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">新增會員</h3>
+            </div>
+            <form id="memberForm" onsubmit="handleSubmit(event)">
+                <input type="hidden" id="memberId">
+                <div class="form-group">
+                    <label class="form-label" for="name">姓名</label>
+                    <input type="text" id="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="phone">電話</label>
+                    <input type="tel" id="phone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">電子郵件</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">確認</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 刪除確認模態框 -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeDeleteModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title">確認刪除</h3>
+            </div>
+            <p style="color: #f0f0f0; margin-bottom: 20px;">確定要刪除這位會員嗎？此操作無法撤銷。</p>
+            <button class="submit-btn delete-btn" onclick="confirmDelete()">確認刪除</button>
+        </div>
+    </div>
+
+    <script>
+        // 模擬會員數據存儲
+        let members = JSON.parse(localStorage.getItem('members')) || [];
+
+        // 生成新的會員編號
+        function generateMemberId() {
+            if (members.length === 0) return 'M00001';
+            
+            let maxNum = 0;
+            
+            // 遍历所有会员，找出最大编号
+            for (let i = 0; i < members.length; i++) {
+                const member = members[i];
+                if (member && member.id && typeof member.id === 'string' && member.id.startsWith('M')) {
+                    const numPart = member.id.substring(1);
+                    const num = parseInt(numPart);
+                    if (!isNaN(num) && num > maxNum) {
+                        maxNum = num;
+                    }
+                }
+            }
+            
+            // 生成新编号
+            return `M${String(maxNum + 1).padStart(5, '0')}`;
+        }
+
+        // 處理表單提交
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const memberId = document.getElementById('memberId').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            if (memberId) {
+                // 編輯現有會員
+                const index = members.findIndex(m => m.id === memberId);
+                if (index !== -1) {
+                    members[index] = {
+                        ...members[index],
+                        name,
+                        phone,
+                        email
+                    };
+                }
+            } else {
+                // 新增會員
+                const newMember = {
+                    id: generateMemberId(),
+                    name,
+                    phone,
+                    email,
+                    registerDate: new Date().toLocaleDateString()
+                };
+                members.push(newMember);
+            }
+
+            // 更新本地存儲
+            localStorage.setItem('members', JSON.stringify(members));
+            
+            // 重新渲染列表並關閉模態框
+            renderMembers();
+            closeModal();
+        }
+
+        // 打開模態框
+        function openModal(type, id = null) {
+            const modal = document.getElementById('memberModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const form = document.getElementById('memberForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            modal.style.display = 'block';
+            form.reset();
+
+            if (type === 'edit' && id) {
+                const member = members.find(m => m.id === id);
+                if (member) {
+                    modalTitle.textContent = '編輯會員';
+                    document.getElementById('memberId').value = member.id;
+                    document.getElementById('name').value = member.name;
+                    document.getElementById('phone').value = member.phone;
+                    document.getElementById('email').value = member.email;
+                    submitBtn.textContent = '更新';
+                }
+            } else {
+                modalTitle.textContent = '新增會員';
+                document.getElementById('memberId').value = '';
+                submitBtn.textContent = '新增';
+            }
+        }
+
+        // 關閉模態框
+        function closeModal() {
+            document.getElementById('memberModal').style.display = 'none';
+        }
+
+        // 打開刪除確認模態框
+        function openDeleteModal(id) {
+            const deleteModal = document.getElementById('deleteModal');
+            deleteModal.style.display = 'block';
+            deleteModal.dataset.memberId = id;
+        }
+
+        // 關閉刪除確認模態框
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+        }
+
+        // 初始化頁面
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMembers();
+        });
+
+        // 渲染會員列表
+        function renderMembers() {
+            const tableBody = document.getElementById('memberTableBody');
+            tableBody.innerHTML = '';
+
+            members.forEach(member => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${member.id}</td>
+                    <td>${member.name}</td>
+                    <td>${member.phone}</td>
+                    <td>${member.email}</td>
+                    <td>${member.registerDate}</td>
+                    <td>
+                        <button class="action-btn" onclick="openModal('edit', '${member.id}')">編輯</button>
+                        <button class="action-btn delete-btn" onclick="openDeleteModal('${member.id}')">刪除</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 確認刪除會員
+        function confirmDelete() {
+            const deleteModal = document.getElementById('deleteModal');
+            const memberId = deleteModal.dataset.memberId;
+            
+            // 使用字符串比较
+            members = members.filter(member => member.id !== memberId);
+            localStorage.setItem('members', JSON.stringify(members));
+            
+            renderMembers();
+            closeDeleteModal();
+        }
+    </script>
+    <div class="social-icons" style="position: fixed; bottom: 20px; right: 20px; display: flex; gap: 15px;">
+        <div class="social-icon-container">
+            <!-- WhatsApp圖標圖片 -->
+            <a href="#"><img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+            <!-- 懸停時顯示的WhatsApp ID和複製按鈕 -->
+            <div class="wechat-hover">
+                <span class="wechat-text">+852-59742108</span>
+                <button class="copy-button" onclick="copyWhatsAppId()">複製</button>
+            </div>
+        </div>
+        <div class="social-icon-container">
+            <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+        </div>
+    </div>
+    <script>
+        function copyWhatsAppId() {
+            navigator.clipboard.writeText('59742108')
+                .then(() => {
+                    const button = event.target;
+                    button.textContent = '已複製';
+                    setTimeout(() => {
+                        button.textContent = '複製';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+    </script>
+</body>
+</html>
