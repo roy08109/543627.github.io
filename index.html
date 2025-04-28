@@ -21,6 +21,7 @@
         });
     </script>
     <style>
+
         body {
             margin: 0;
             padding: 0;
@@ -654,6 +655,7 @@
     </style>
 </head>
 <body>
+
     <div class="macau-sauna-title">
         <h2>澳門桑拿/水療</h2>
         <div class="macau-news-links">
@@ -810,11 +812,13 @@
                     function copyWechatId() {
                         navigator.clipboard.writeText('macaudada')
                             .then(() => {
-                                const button = document.querySelector('.copy-button');
-                                button.textContent = '已複製';
-                                setTimeout(() => {
-                                    button.textContent = '複製';
-                                }, 2000);
+                                const button = document.querySelector('.copy-button[onclick*="copyWechatId"]');
+                                if (button) {
+                                    button.textContent = '已複製';
+                                    setTimeout(() => {
+                                        button.textContent = '複製';
+                                    }, 2000);
+                                }
                             })
                             .catch(err => {
                                 console.error('複製失敗:', err);
@@ -824,10 +828,7 @@
                     function copyLineId() {
                         navigator.clipboard.writeText('59742108')
                             .then(() => {
-                                const buttons = document.querySelectorAll('.copy-button');
-                                const lineButton = Array.from(buttons).find(button => 
-                                    button.previousElementSibling.textContent === '+852-59742108'
-                                );
+                                const lineButton = document.querySelector('.copy-button[onclick*="copyLineId"]');
                                 if (lineButton) {
                                     lineButton.textContent = '已複製';
                                     setTimeout(() => {
@@ -843,10 +844,7 @@
                     function copyWhatsAppId() {
                         navigator.clipboard.writeText('59742108')
                             .then(() => {
-                                const buttons = document.querySelectorAll('.copy-button');
-                                const whatsappButton = Array.from(buttons).find(button => 
-                                    button.previousElementSibling.textContent === '+852-59742108'
-                                );
+                                const whatsappButton = document.querySelector('.copy-button[onclick*="copyWhatsAppId"]');
                                 if (whatsappButton) {
                                     whatsappButton.textContent = '已複製';
                                     setTimeout(() => {

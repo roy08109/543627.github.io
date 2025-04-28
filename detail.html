@@ -375,24 +375,24 @@
                     <h3>聯繫我們享有專屬優惠，交個朋友！</h3>
                     <div class="social-icons">
                         <div class="social-icon-container">
-                        <a href="#"><img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon"></a>
+                        <img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon" onclick="copyWechatId(); return false;">
                         <div class="wechat-hover">
                             <span class="wechat-text">macaudada</span>
                             <button class="copy-button" onclick="copyWechatId()">複製</button>
                         </div>
                     </div>
                         <div class="social-icon-container">
-                            <a href="#"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
+                            <a href="javascript:void(0)" onclick="copyLineId(); return false;"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
                             <div class="wechat-hover">
-                                <span class="wechat-text">複製連結</span>
-                                <button class="copy-button" onclick="copyLineId()">複製</button>
+                                <span class="wechat-text">+852-59742108</span>
+                                <button class="copy-button" onclick="copyLineId(); return false;">複製</button>
                             </div>
                         </div>
                         <div class="social-icon-container">
-                            <a href="#"><img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+                            <a href="javascript:void(0)" onclick="copyWhatsAppId(); return false;"><img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
                             <div class="wechat-hover">
                                 <span class="wechat-text">+852-59742108</span>
-                                <button class="copy-button" onclick="copyWhatsAppId()">複製</button>
+                                <button class="copy-button" onclick="copyWhatsAppId(); return false;">複製</button>
                             </div>
                         </div>
                         <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
@@ -408,30 +408,51 @@
 
     <script>
         function copyWechatId() {
-            const wechatId = 'macaudada';
-            navigator.clipboard.writeText(wechatId).then(() => {
-                alert('已複製微信ID：' + wechatId);
-            }).catch(err => {
-                console.error('複製失敗：', err);
-            });
+            navigator.clipboard.writeText('macaudada')
+                .then(() => {
+                    const button = document.querySelector('.copy-button[onclick*="copyWechatId"]');
+                    if (button) {
+                        button.textContent = '已複製';
+                        setTimeout(() => {
+                            button.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
         }
 
         function copyLineId() {
-            const lineId = 'https://line.me/ti/p/~macaudada';
-            navigator.clipboard.writeText(lineId).then(() => {
-                alert('已複製LINE連結');
-            }).catch(err => {
-                console.error('複製失敗：', err);
-            });
+            navigator.clipboard.writeText('59742108')
+                .then(() => {
+                    const lineButton = document.querySelector('.copy-button[onclick*="copyLineId"]');
+                    if (lineButton) {
+                        lineButton.textContent = '已複製';
+                        setTimeout(() => {
+                            lineButton.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
         }
 
         function copyWhatsAppId() {
-            const whatsappId = '+852-59742108';
-            navigator.clipboard.writeText(whatsappId).then(() => {
-                alert('已複製WhatsApp號碼：' + whatsappId);
-            }).catch(err => {
-                console.error('複製失敗：', err);
-            });
+            navigator.clipboard.writeText('59742108')
+                .then(() => {
+                    const whatsappButton = document.querySelector('.copy-button[onclick*="copyWhatsAppId"]');
+                    if (whatsappButton) {
+                        whatsappButton.textContent = '已複製';
+                        setTimeout(() => {
+                            whatsappButton.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
         }
 
 
