@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桑拿服務詳情 - 澳門桑拿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            padding: 15px 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            backdrop-filter: blur(3px);
+        }
+
+        .nav-button:hover {
+            background: rgba(213, 189, 122, 0.2);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(213, 189, 122, 0.3);
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .detail-title {
+            font-size: 2.5em;
+            color: #d5bd7a;
+            font-weight: bold;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(213, 189, 122, 0.2);
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 20px;
+        }
+
+        .detail-subtitle {
+            font-size: 1.2em;
+            color: #b8b8b8;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .detail-content.fade {
+            opacity: 0;
+        }
+
+        .detail-image {
+            position: relative;
+            width: 700px;
+            height: 300px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(to bottom right, #e6d294, #c8ae67, #d5bd7a, #c8ae67) 1;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(200, 174, 103, 0.3);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .detail-info {
+            padding: 20px;
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            border: 1px solid rgba(213, 189, 122, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-section h3 {
+            color: #d5bd7a;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .info-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(213, 189, 122, 0.7), rgba(213, 189, 122, 0.1));
+        }
+
+        .info-section p {
+            color: #c0c0c0;
+            line-height: 1.8;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            color: #c0c0c0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '✧';
+            position: absolute;
+            left: 0;
+            color: #d5bd7a;
+        }     
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: transparent;
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            filter: brightness(1) drop-shadow(0 0 15px rgba(213, 189, 122, 0.4));
+        }
+
+        .social-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .wechat-hover {
+            display: none;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(5, 5, 5, 0.95);
+            padding: 8px 15px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-hover::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: rgba(5, 5, 5, 0.95);
+            border-left: 1px solid rgba(213, 189, 122, 0.3);
+            border-top: 1px solid rgba(213, 189, 122, 0.3);
+        }
+
+        .wechat-text {
+            color: #d5bd7a;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            color: #d5bd7a;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+        }
+
+        .social-icon-container:hover .wechat-hover {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            padding: 15px 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            backdrop-filter: blur(3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-title {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 1.2rem;
+            }
+
+            .prev-button {
+                left: 10px;
+            }
+
+            .next-button {
+                right: 10px;
+            }
+        }
+
+        .nav-button:hover {
+            background: rgba(213, 189, 122, 0.2);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(213, 189, 122, 0.3);
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="nav-button prev-button" onclick="changeLocation('prev')">❮</button>
+    <button class="nav-button next-button" onclick="changeLocation('next')">❯</button>
+
+    <div class="container">
+        <div class="detail-header">
+            <h1 class="detail-title">東方皇堡水療</h1>
+            <div class="detail-subtitle">奢華享受的極致體驗</div>
+        </div>
+
+        <div class="detail-content">
+            <div class="detail-image">
+                <img src="images/東方皇堡水療.jpg" alt="東方皇堡水療">
+            </div>
+
+            <div class="detail-info">
+                <div class="info-section">
+                    <h3>服務介紹</h3>
+                    <p>東方皇堡水療為您提供最頂級的桑拿體驗，融合東方傳統養生智慧與現代奢華設施，打造獨一無二的休閒空間。我們的專業團隊將為您帶來無與倫比的放鬆享受。</p>
+                </div>
+
+                <div class="info-section">
+                    <h3>價目表</h3>
+                    <ul class="features-list">
+                        <li>12 小時入場費 Entrance Fee (12 hours) 1,568</li>
+                        <li>美容香薰 Spa80min 2,199</li>
+                        <li>(自選) 主題 Spa/Free Style Spa 2,998</li>
+                        <li>(特選) 主題 Spa/Aroma Theme Spa 3,398</li>
+                        <li>(貴族) 主題 Spa/Noble Aroma Theme Spa 3,798</li>
+                        <li>(歐式) 主題 Spa/Europe Aroma Theme Spa 4,198</li>
+                        <li>(尊貴) 主題 Spa/Primer Aroma Theme Spa 4,298</li>
+                        <li>(環亞) 主題 Spa/Grand Asia Aroma Theme Spa 4,698</li>
+                        <li>(日本) 主題 Spa/Japan Style Aroma Theme Spa 5,764</li>
+                        <li>雙妃優惠 1,200 起</li>
+                        <li>以上價格需另收 10% 服務費和 5% 旅遊稅。</li>
+                        <li>the above subject to a 10% service charge and 5% tourist tax</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h3>聯繫我們享有專屬優惠，交個朋友！</h3>
+                    <div class="social-icons">
+                        <div class="social-icon-container">
+                        <a href="#"><img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon"></a>
+                        <div class="wechat-hover">
+                            <span class="wechat-text">macaudada</span>
+                            <button class="copy-button" onclick="copyWechatId()">複製</button>
+                        </div>
+                    </div>
+                        <div class="social-icon-container">
+                            <a href="#"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
+                            <div class="wechat-hover">
+                                <span class="wechat-text">複製連結</span>
+                                <button class="copy-button" onclick="copyLineId()">複製</button>
+                            </div>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="#"><img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+                            <div class="wechat-hover">
+                                <span class="wechat-text">+852-59742108</span>
+                                <button class="copy-button" onclick="copyWhatsAppId()">複製</button>
+                            </div>
+                        </div>
+                        <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+                    </div>
+                    <p>每日營業 12:00 - 翌日 04:00</p>
+                    <div class="price-tag">套票價格：由 MOP 688 起</div>
+                </div>
+
+                <a href="index.html" class="back-button">返回首頁</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyWechatId() {
+            const wechatId = 'macaudada';
+            navigator.clipboard.writeText(wechatId).then(() => {
+                alert('已複製微信ID：' + wechatId);
+            }).catch(err => {
+                console.error('複製失敗：', err);
+            });
+        }
+
+        function copyLineId() {
+            const lineId = 'https://line.me/ti/p/~macaudada';
+            navigator.clipboard.writeText(lineId).then(() => {
+                alert('已複製LINE連結');
+            }).catch(err => {
+                console.error('複製失敗：', err);
+            });
+        }
+
+        function copyWhatsAppId() {
+            const whatsappId = '+852-59742108';
+            navigator.clipboard.writeText(whatsappId).then(() => {
+                alert('已複製WhatsApp號碼：' + whatsappId);
+            }).catch(err => {
+                console.error('複製失敗：', err);
+            });
+        }
+
+
+        const locations = [
+            {
+                name: '東方皇堡水療',
+                subtitle: '奢華享受的極致體驗',
+                image: 'images/東方皇堡水療.jpg',
+                description: '東方皇堡水療為您提供最頂級的桑拿體驗，融合東方傳統養生智慧與現代奢華設施，打造獨一無二的休閒空間。我們的專業團隊將為您帶來無與倫比的放鬆享受。',
+                features: [
+                    '12 小時入場費 Entrance Fee (12 hours) 1,568',
+                    '美容香薰 Spa80min 2,199',
+                    '(自選) 主題 Spa/Free Style Spa 2,998',
+                    '(特選) 主題 Spa/Aroma Theme Spa 3,398',
+                    '(貴族) 主題 Spa/Noble Aroma Theme Spa 3,798',
+                    '(歐式) 主題 Spa/Europe Aroma Theme Spa 4,198',
+                    '(尊貴) 主題 Spa/Primer Aroma Theme Spa 4,298',
+                    '(環亞) 主題 Spa/Grand Asia Aroma Theme Spa 4,698',
+                    '(日本) 主題 Spa/Japan Style Aroma Theme Spa 5,764',
+                    '雙妃優惠 1,200 起',
+                    '以上價格需另收 10% 服務費和 5% 旅遊稅。',
+                    'the above subject to a 10% service charge and 5% tourist tax'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '尊貴水療',
+                subtitle: '尊享奢華水療體驗',
+                image: 'images/尊貴水療.jpg',
+                description: '尊貴水療以頂級服務聞名，為您提供最專業的養生護理體驗。我們的環境優雅，設施完善，讓您在此享受無與倫比的放鬆時光。',
+                features: [
+                    '12 小時入場費 Entrance Fee (12 hours) 1,568',
+                    '美容香薰 Spa80min 2,199',
+                    '(自選) 主題 Spa/Free Style Spa 2,998',
+                    '(特選) 主題 Spa/Aroma Theme Spa 3,398',
+                    '(貴族) 主題 Spa/Noble Aroma Theme Spa 3,798',
+                    '(歐式) 主題 Spa/Europe Aroma Theme Spa 4,198',
+                    '(尊貴) 主題 Spa/Primer Aroma Theme Spa 4,298',
+                    '(環亞) 主題 Spa/Grand Asia Aroma Theme Spa 4,698',
+                    '(日本) 主題 Spa/Japan Style Aroma Theme Spa 5,764',
+                    '雙妃優惠 1,200 起',
+                    '以上價格需另收 10% 服務費和 5% 旅遊稅。',
+                    'the above subject to a 10% service charge and 5% tourist tax'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '豪門桑拿',
+                subtitle: '極致舒適的頂級享受',
+                image: 'images/豪門桑拿.png',
+                description: '豪門桑拿為您帶來最高級的休閒體驗，配備先進的水療設施和專業的服務團隊，讓您享受無與倫比的放鬆時光。',
+                features: [
+                    '星際日韓式按摩（60 分鐘）- MOP 6,588',
+                    '日韓式按摩（60分鐘）- MOP 5,988',
+                    '超豪華按摩（60 分鐘）- MOP 5,288',
+                    '歐式按摩（60分鐘）- MOP 4,988',
+                    '星級超式按摩（60 分鐘）- MOP 4,388',
+                    '星級式按摩（60分鐘）- MOP 3,988',
+                    '星級越南式按摩（60 分鐘）- MOP 3,988',
+                    '亞裔式按摩（60分鐘）- MOP 3,988',
+                    '越式按摩（60 分鐘）- MOP 2,988',
+                    '上海式按摩（90分鐘）- MOP 2,188',
+                    '健康芬蘭浴 / 門票（12 小時）- MOP 1,788'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '凱旋桑拿',
+                subtitle: '尊貴享受的極致體驗',
+                image: 'images/凱旋桑拿.png',
+                description: '凱旋桑拿提供最優質的桑拿體驗，結合現代化設施與傳統養生之道，為您打造完美的休閒時光。',
+                features: [
+                    '淨桑 $1888',
+                    '上海式 $2298',
+                    '東模 (2XX) $2998 雙飛加$1000',
+                    '東超模 (3XX) $3698 雙飛加$1200',
+                    '超模 (5/6XX) $3698 雙飛加$1200',
+                    '才藝 (8XX) $4398 雙飛加$1500',
+                    '亞洲 (10XX) $4998 雙飛加$2300',
+                    '歐美模特 (9XX) $4298 雙飛加$1500',
+                    '韓國模特 (7XX) $5598 雙飛加$3800',
+                    '日本模特 (7XX) $5798 雙飛加$3800',
+                    '註：所有消費需加收 10% 服務費'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '壹號桑拿',
+                subtitle: '精緻奢華的養生空間',
+                image: 'images/壹號桑拿.jpg',
+                description: '壹號桑拿為追求高品質生活的您提供最頂級的服務，擁有完善的設施與專業的服務團隊，讓您享受無與倫比的放鬆體驗。',
+                features: [
+                    '7XX 越泰 3088 900',
+                    '8XX 蒙泰越 3488 1400',
+                    '1XXX 台式 3688 1000',
+                    '2XXX 台模 3988 1700',
+                    '3XXX 台超 4588 2100',
+                    '6XXX 歐 4188 3388',
+                    '8XXX 日 5288 4488',
+                    '9XXX 韓 5788 4988',
+                    '6XX 日韩 AV 7088 6288',
+                    '6XX 韓國環球 7488 6688',
+                    '60 分鐘 / 以上未加 10% 政府稅'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '極品桑拿',
+                subtitle: '極致享受的頂級空間',
+                image: 'images/極品桑拿.jpeg',
+                description: '極品桑拿為您提供最高級的休閒體驗，擁有豪華的環境和專業的服務團隊，讓您享受無與倫比的放鬆時光。',
+                features: [
+                    '水療 SPA（净桑拿）Sauna Spa only (15 小时 /hours) $1988',
+                    '极品休闲 SPA Excellent Shanghai style Massage & Sauna (90分钟/mins) $2388',
+                    '极品东南亚 LADY SPA Excellent Southeast Asia Lady Spa (50 分钟 /mins) $3288',
+                    '极品东南亚模特LADY SPA Excellent Southeast Asia Model Lady Spa (50分钟/mins) $3838',
+                    '极品东南亚明星 LADY SPA Excellent Southeast Asia Star Lady Spa (50 分钟 /mins) $4188',
+                    '极品超模LADY SPA Excellent Super Model Lady Spa (50分钟/mins) $3838',
+                    '极品星模 LADY SPA Excellent Super Star Model Lady Spa (50 分钟 /mins) $4538',
+                    '极品环球LADY SPA Excellent Global Lady Spa (50分钟/mins) $5238',
+                    '极品俄式 LADY SPA Excellent Russia Lady Spa (50 分钟 /mins) $4838',
+                    '极品日式LADY SPA Excellent Japan Lady Spa (50分钟/mins) $6038',
+                    '极品韩式 LADY SPA Excellent Korea Lady Spa (50 分钟 /mins) $6038',
+                    '极品坡妹LADY SPA Excellent Singapore Lady Spa (50分钟/mins) $6038',
+                    '极品日星 LADY SPA Excellent japan star lady spa (50 分钟 /mins) $6438',
+                    '极品韩星LADY SPA Excellent korea star lady spa (50分钟/mins) $6438',
+                    '（以上所有 LADY SPA 如果使用情景房）另加收费 $440',
+                    '（Additional charge for all the theme room ）$440',
+                    '所有收费项目已加收 5% 政府税及 5% 服务费（所有收费包括小费及代支）',
+                    'All charges include 5% government tax and 5% service charge (including tips and expenses)'
+                ],
+                hours: '複製上方連接,在對應APP加好友!',
+            },
+            {
+                name: '18桑拿',
+                subtitle: '精緻舒適的休閒空間',
+                image: 'images/18桑拿.jpg',
+                description: '18桑拿為您提供高品質的桑拿體驗，配備現代化的設施和專業的服務團隊，讓您享受愉悅的放鬆時光。',
+                features: [
+                    '18 桑拿 -單,雙人',
+                    '越式 160 - 199 $3,330 $2,200',
+                    'SPA 100 - 159 $3,530 $2,200',
+                    '越式 高級 650 - 699 $3,730 $2,200',
+                    'SPA 高级 600 - 649 $3,930 $2,200',
+                    '欧式 / 明星 800 - 999 $4,330 $2,400',
+                    '外明 330 - 359 $4,630 $2,400',
+                    '宝岛 2XX $4,650 $3,000',
+                    '超模 / 外超模 7XX $4,950 $3,400',
+                    '日本 / 韓國 3XX $5,550 $3,850',
+                    '上海式 $2,280',
+                    '净水 $1,780'
+                ],
+                hours: '複製上方連接,在對應APP加好友!',
+            },
+            {
+                name: 'MCLUB 晉會',
+                subtitle: '時尚精緻的休閒會所',
+                image: 'images/MCLUB晉會.avif',
+                description: 'MCLUB 晉會為您帶來最時尚的休閒體驗，擁有現代化的設施和專業的服務團隊，讓您享受愉悅的放鬆時光。',
+                features: [
+                    '12 小時入場費 Entrance Fee (12 hours) 1,568',
+                    '美容香薰 Spa80min 2,199',
+                    '(自選) 主題 Spa/Free Style Spa 2,998',
+                    '(特選) 主題 Spa/Aroma Theme Spa 3,398',
+                    '(貴族) 主題 Spa/Noble Aroma Theme Spa 3,798',
+                    '(歐式) 主題 Spa/Europe Aroma Theme Spa 4,198',
+                    '(尊貴) 主題 Spa/Primer Aroma Theme Spa 4,298',
+                    '(環亞) 主題 Spa/Grand Asia Aroma Theme Spa 4,698',
+                    '(日本) 主題 Spa/Japan Style Aroma Theme Spa 5,764',
+                    '雙妃優惠 1,200 起',
+                    '以上價格需另收 10% 服務費和 5% 旅遊稅。',
+                    'the above subject to a 10% service charge and 5% tourist tax'
+                ],
+                hours: '複製上方連接,在對應APP加好友!',
+            },
+            {
+                name: '帝湖桑拿',
+                subtitle: '極致享受的頂級空間',
+                image: 'images/帝湖桑拿.png',
+                description: '帝湖桑拿為您提供最頂級的桑拿體驗，擁有豪華的環境和專業的服務團隊，讓您享受無與倫比的放鬆時光。',
+                features: [
+                    '淨桑拿 Clean Sauna - $1888',
+                    '上海式按摩 ShangHainese Massage - $2288',
+                    '東南亞模特 Southeast Asian model - $3199',
+                    '東南亞超模 Southeast Asian Supermodel - $3899',
+                    '超模 Super model - $3899',
+                    '才藝 Talent - $4699',
+                    '亞洲 Asia - $5199',
+                    '歐美模特 European And American Model - $4499',
+                    '日本模特 Japanese Model - $5799',
+                    '日本超模 Japanese Supermodel - $6199',
+                    '韓國超模 Korean Supermodel - $5899',
+                    '韓國環球 Korea Global - $6799',
+                    '本店將收取消費金額 10% 的服務費 / 10% Service fee will be Charged.'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            },
+            {
+                name: '帝道桑拿',
+                subtitle: '尊貴享受的頂級空間',
+                image: 'images/帝道桑拿.jpg',
+                description: '帝道桑拿為追求高品質生活的您提供最優質的服務，配備完善的設施與專業的服務團隊，讓您享受無與倫比的放鬆體驗。',
+                features: [
+                    '芬兰浴 HEALTHY SAUMA NATH 1888',
+                    '上海式按摩 SHANGHAI STYLE MASSAGE 2188',
+                    '越式混合 VIETNAMESE STYLE MIXED 3988',
+                    '泰式混合 THAI STYLE MIXED 4388',
+                    '蒙式混合 MONGOLIA STYLE MIXED 4688',
+                    '马来混合 MALA STYLE MIXED 4988',
+                    '台式混合 TAI STYLE MIXED 5188',
+                    '欧式混合 EURO STYLE MIXED 5588',
+                    '不额外加收服务费'
+                ],
+                hours: '複製上方連接,在對應APP加好友!'
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateContent(location) {
+            const content = document.querySelector('.detail-content');
+            content.classList.add('fade');
+
+            setTimeout(() => {
+                document.querySelector('.detail-title').textContent = location.name;
+                document.querySelector('.detail-subtitle').textContent = location.subtitle;
+                document.querySelector('.detail-image img').src = location.image;
+                document.querySelector('.detail-image img').alt = location.name;
+                document.querySelector('.info-section p').textContent = location.description;
+
+                const featuresList = document.querySelector('.features-list');
+                featuresList.innerHTML = location.features.map(feature => `<li>${feature}</li>`).join('');
+
+                document.querySelector('.info-section:nth-child(3) p').textContent = location.hours;
+                document.querySelector('.price-tag').textContent = location.price;
+
+                content.classList.remove('fade');
+            }, 300);
+        }
+
+        function changeLocation(direction) {
+            if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + locations.length) % locations.length;
+            } else {
+                currentIndex = (currentIndex + 1) % locations.length;
+            }
+            updateContent(locations[currentIndex]);
+        }
+
+        // 監聽鍵盤事件
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeLocation('prev');
+            } else if (e.key === 'ArrowRight') {
+                changeLocation('next');
+            }
+        });
+
+        // 初始化頁面內容
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent(locations[currentIndex]);
+        });
+    </script>
+</body>
+</html>

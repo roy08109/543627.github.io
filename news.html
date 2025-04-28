@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門要聞 - 澳門桑拿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #d5bd7a, #c8ae67);
+            color: #050505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .back-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(213, 189, 122, 0.3);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #d5bd7a;
+            font-weight: bold;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 5px;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .news-list {
+            margin: 40px 0;
+        }
+        .news-item {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            margin-bottom: 30px;
+            padding: 30px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(213, 189, 122, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        .news-date {
+            color: #d5bd7a;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .news-title {
+            color: #d5bd7a;
+            font-size: 1.5em;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        .news-content {
+            color: #c0c0c0;
+            line-height: 1.8;
+            margin-top: 15px;
+            text-align: justify;
+            padding: 10px 0;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #d5bd7a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .read-more:hover {
+            border-bottom-color: #d5bd7a;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .news-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home">返回首頁</a>
+    <div class="container">
+        <header class="header">
+            <h1>澳門要聞</h1>
+        </header>
+
+        <div class="news-list">
+
+            <article class="news-item">
+                <div class="news-date">2025年4月23日</div>
+                <h2 class="news-title">女莊荷涉休假期間不法匯兌</h2>
+                <div class="news-content">
+                    43歲女莊荷休假期間，在娛樂場涉嫌與賭客不法匯兌，被司警截獲，移交檢察院偵辦。
+
+                    司警昨日 (22日)中午在路氹區的酒店巡查，揭發 2名男女不法兌換，調查發現涉案的本澳女子任職莊荷，案發時休假，在非任職的賭場周邊不法匯兌，被扣押的現金和籌碼共 16萬多元。有人供稱 1月起在娛樂場一帶不法匯兌，獲利 1.5萬元人民幣。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月22日</div>
+                <h2 class="news-title">內地漢涉拾獲1萬元籌碼據為己有</h2>
+                <div class="news-content">
+                    40多歲內地男子涉嫌在路氹城的酒店拾獲 1萬港元籌碼用於賭博，被治安警拘捕。
+
+                    治安警上週五 (18日)接獲失主報案，在路氹城酒店前台辦理入住手續期間，遺失 1枚 1萬港元籌碼，懷疑被人拾走。治安警根據天眼系統及現場監控鎖定嫌疑人，同日下午在新口岸酒店大堂將他截獲，有人供稱因一時貪念而犯案，拾獲的籌碼已用於賭博，並嬴取 2,000港元，治安警在他身上搜出扣押 3萬多港元現金。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月11日</div>
+                <h2 class="news-title">36歲內地女賭客涉誣告強姦</h2>
+                <div class="news-content">
+                    36歲內地女子賭敗後，向 1名聲稱可以賭嬴的內地男子求助，雙方發生性關係後一同前往娛樂場，期間男方藉故離開，女方報警聲稱對方強姦，司警調查後認為報案內容可疑，以誣告罪將涉案女子移送檢察院。 
+
+                    司警昨日 (10日)凌晨接獲治安警通報，涉案女子報稱在路氹區酒店客房遭到 1名內地男子強姦，轉交司警調查。司警根據監控展開調查，發現涉案 2人相處表現自然，涉案女子被盤問時承認報案內容不實。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月9日</div>
+                <h2 class="news-title">司警破2不法匯兌案截獲4換錢黨</h2>
+                <div class="news-content">
+                    司警偵破 2宗不法匯兌案，合共拘捕 4名內地換錢黨。  
+
+                    其中，在路氹城娛樂場揭發的案件，3名嫌疑人在換錢期間被截獲，分別承認今年 (2025年)3月中旬至今犯案，各自獲利約 500至 1,000元不等。司警在案中扣押 7.5萬港元籌碼、1.6萬港元現金。 
+
+                    另一宗案件則發生在中區的娛樂場，司警巡查時鎖定嫌疑人，並在他與賭客不法匯兌時上前截查，嫌疑人承認去年 (2024年)6月起來澳不法匯兌，至今不法獲利至少 30萬港元，司警在案中扣押5.1萬港元籌碼和2萬現金。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月9日</div>
+                <h2 class="news-title">女遊客涉拾獲籌碼據為己有被捕</h2>
+                <div class="news-content">
+                    40多歲內地女子來澳旅遊時拾獲 1.5萬元籌碼，到娛樂場賭博，涉嫌拾遺不報被移送檢察院。嫌疑人承認作案，報稱已輸光籌碼。
+
+                    治安警上月 (3月)接獲受害人報案，報稱於路氹城娛樂場的女廁格遺留 1.5萬港元籌碼，折返亦未能尋回，期間曾遇到另 1名女子離開女廁，懷疑籌碼被人拾獲據為己有。
+
+                    嫌疑人本週一 (7日)經港珠澳大橋口岸入境時被治安警截獲，她承認一時貪念犯案。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月8日</div>
+                <h2 class="news-title">內地女涉不法匯兌被賭場保安揭發報警</h2>
+                <div class="news-content">
+                    37歲內地女子懷疑在娛樂場做"換錢黨"，被保安截獲移交司警，她涉嫌不法匯兌被移送檢察院處理。
+
+                    司警昨日 (7日)接獲路氹城娛樂場保安部通報後，派員到場跟進，發現涉案內地女子曾與人不法匯兌 1,500港元籌碼，有人承認犯案，並供稱本月 (4月)起在娛樂場內搭訕賭客協議換錢，每兌換1,000港元可獲利 60港元。司警並在涉案女子身上搜獲 12萬港元籌碼，相信是作案之用。
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">2025年4月7日</div>
+                <h2 class="news-title">2男涉女裝打扮賣淫事後被誣告搶劫</h2>
+                <div class="news-content">
+                    2名女裝打扮的東南亞裔男子涉嫌賣淫，事後懷疑被 1名內地男子誣告搶劫。
+
+                    治安警接獲案中內地男子報稱被搶去 1.9萬元，但認為情節可疑，轉交司警跟進。司警發現，報案的內地男子在南灣的街上，結識案中 2名「男扮女裝」的東南亞裔人士，雙方協議用 1,000元到附近酒店按摩及性交易，事後涉案內地男子被索取 2,000元費用。司警懷疑內地男子付費後認為對方坐地起價，所以誣告搶劫，案件已移送檢察院處理；治安警並跟進案中 2名東南亞裔男子涉嫌非法工作。
+                </div>
+            </article>
+
+
+
+
+            <article class="news-item">
+                <div class="news-date">2025年3月29日</div>
+                <h2 class="news-title">澳門司警拘2人涉用高仿假籌碼詐騙33萬港元</h2>
+                <div class="news-content">
+                    司警拘捕2名內地男子，涉嫌在娛樂場用高仿真度的假籌碼和13名內地男女兌換，實施詐騙，涉案金額共約33萬港元。司警其後亦發現13名被害人中，5人為"換錢黨"，已對他們作出檢控。
+
+                    司警發言人周錠軒："2名嫌犯受聘於身處內地的主腦，及2人可以獲得詐騙所得的一成，即10%作為報酬。截至現時，共有13名人士報稱被詐騙，各人的損失金額由1萬至6萬元不等，總案件的詐騙金額高達33萬港元。而包括在高姓嫌犯身上搜獲和趙姓嫌犯所棄置在垃圾桶的13個籌碼，本局至今共發現及扣押了46個同一批次面值1萬元的假籌碼。"
+
+                    司警指涉案的假籌碼無論外表、大小、重量都與真籌碼相若，一般市民和賭客難以分辨，需要使用專業的儀器進行檢測才能知道這些籌碼是否有防偽晶片。又指被捕的2人在案發當日聯同多名團伙入境本澳，正追查另外至少3人的下落。
+                </div>
+            </article>
+        </div>
+    </div>
+    <script>
+        // 移除原有的腳本，因為不再需要展開/收起功能
+    </script>
+</body>
+</html>
