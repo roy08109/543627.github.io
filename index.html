@@ -123,15 +123,47 @@
             justify-content: center;
             gap: 10px;
         }
+        @keyframes slideText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 促銷文字的基本樣式設置 */
         .slide-caption .promotion-text {
-            color: #ffffff;
-            font-size: 1.44em;
-            font-weight: 300;
-            letter-spacing: 1.8px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            max-width: 85%;
-            line-height: 1.5;
-            margin: 5px 0;
+            color: #ffffff;                                /* 文字顏色設為白色 */
+            font-size: 1.87em;                           /* 文字大小設為1.87倍 */
+            font-weight: 300;                            /* 文字粗細設為細體 */
+            letter-spacing: 2px;                         /* 字間距設為2像素 */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);  /* 添加文字陰影效果 */
+            max-width: 85%;                              /* 最大寬度限制為85% */
+            line-height: 1.6;                            /* 行高設為1.6倍 */
+            margin: 8px 0;                               /* 上下外邊距為8像素 */
+            white-space: nowrap;                         /* 防止文字換行 */
+            animation: slideText 15s linear infinite;     /* 應用15秒無限循環的滑動動畫 */
+            padding: 15px 0;                             /* 上下內邊距為15像素 */
+            position: relative;                          /* 設置相對定位以支持偽元素 */
+        }
+
+        .slide-caption .promotion-text::before,
+        .slide-caption .promotion-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 800%;
+            height: 1px;
+            background: #ffffff;
+        }
+
+        .slide-caption .promotion-text::before {
+            top: 0;
+        }
+
+        .slide-caption .promotion-text::after {
+            bottom: 0;
+        }
+        @keyframes slideLine {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         .slide-caption .location-name {
             color: #d5bd7a;
@@ -706,41 +738,83 @@
         <div class="slide active">
             <img src="images/hotel/永利.jpg" alt="永利">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美高梅.jpg" alt="美高梅">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/凯旋門.jpg" alt="凯旋門">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新京.jpg" alt="新京">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/金沙.jpg" alt="金沙">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/星際.jpg" alt="星際">
             <div class="slide-caption">
-                <div class="promotion-text">享受專屬優惠和免費接送！<br>只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/十六.jpg" alt="十六">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/天地.jpg" alt="天地">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/東京.jpg" alt="東京">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/美獅.jpg" alt="美獅">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/銀河.jpg" alt="銀河">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/hotel/新𡶶.jpg" alt="新𡶶">
+            <div class="slide-caption">
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide-dots">
             <div class="slide-dot active"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
             <div class="slide-dot"></div>
             <div class="slide-dot"></div>
             <div class="slide-dot"></div>
@@ -753,11 +827,17 @@
         <div class="header">
 
             <h1 class="welcome-title"></h1>
-            <p class="welcome-subtitle">奢華體驗的極致</p>
+            <p class="welcome-subtitle">體驗物超所值的澳門桑拿/水療</p>
         </div>
         
         <h2 class="section-title">尊貴服務</h2>
         <div class="cards">
+            <a href="guide.html" class="card">
+                <div class="card-icon"></div>
+                <h3 class="card-title">澳門桑拿攻略</h3>
+                <p class="card-description">探索澳門夜間娛樂的精華指南，助您規劃完美的夜生活體驗。</p>
+                <div class="card-button">查看攻略</div>
+            </a>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">澳門桑拿/水療</h3>
@@ -890,7 +970,7 @@
 
         </div>
         <div class="footer-bottom">
-            <p>© 2025 543627 版權所有分享澳门桑拿、澳门spa、澳门水疗<span>壹號桑拿</span>，<span>豪門桑拿</span>，<span>尊貴水療</span>，<span>帝湖水療</span>，<span>極品桑拿</span>，<span>東方皇堡</span>，<span>十八桑拿</span>，<span>澳門晉會桑拿</span>，<br>澳门水疗折扣，澳门桑拿优惠攻略合集，澳門桑拿收費,澳門桑拿玩法,澳門桑拿時間,澳門桑拿近況,澳門桑拿排名,澳門桑拿推介,讓你澳門桑拿，物超所值。！</p>
+            <p>© 2025 543627 版權所有分享澳門桑拿、澳門spa、澳门水疗<span>壹號桑拿</span>，<span>豪門桑拿</span>，<span>尊貴水療</span>，<span>帝湖水療</span>，<span>極品桑拿</span>，<span>東方皇堡</span>，<span>十八桑拿</span>，<span>澳門晉會桑拿</span>，<br>澳门水疗折扣，澳门桑拿优惠攻略合集，澳門桑拿收費,澳門桑拿玩法,澳門桑拿時間,澳門桑拿近況,澳門桑拿排名,澳門桑拿推介,讓你澳門桑拿，物超所值。！</p>
             <div class="keywords-list">
                 543627
             </div>
