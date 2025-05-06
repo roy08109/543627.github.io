@@ -125,7 +125,7 @@
         }
         @keyframes slideText {
             0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-400%); }
         }
 
         /* 促銷文字的基本樣式設置 */
@@ -139,28 +139,12 @@
             line-height: 1.6;                            /* 行高設為1.6倍 */
             margin: 8px 0;                               /* 上下外邊距為8像素 */
             white-space: nowrap;                         /* 防止文字換行 */
-            animation: slideText 15s linear infinite;     /* 應用15秒無限循環的滑動動畫 */
+            animation: slideText 30s linear infinite;     /* 應用30秒無限循環的滑動動畫 */
             padding: 15px 0;                             /* 上下內邊距為15像素 */
             position: relative;                          /* 設置相對定位以支持偽元素 */
         }
 
-        .slide-caption .promotion-text::before,
-        .slide-caption .promotion-text::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 800%;
-            height: 1px;
-            background: #ffffff;
-        }
-
-        .slide-caption .promotion-text::before {
-            top: 0;
-        }
-
-        .slide-caption .promotion-text::after {
-            bottom: 0;
-        }
+        
         @keyframes slideLine {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
@@ -727,7 +711,7 @@
     <div class="macau-sauna-title">
         <h2>澳門桑拿/水療</h2>
         <div class="macau-news-links">
-            <a href="detail.html" class="macau-news-link">桑拿收費</a>
+            <a href="macau-sauna-detail.html" class="macau-news-link">桑拿收費</a>
             <a href="news.html" class="macau-news-link">澳門要聞</a>
             <a href="info.html" class="macau-news-link">澳門資訊</a>
         </div>
@@ -738,73 +722,73 @@
         <div class="slide active">
             <img src="images/hotel/永利.jpg" alt="永利">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美高梅.jpg" alt="美高梅">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/凯旋門.jpg" alt="凯旋門">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新京.jpg" alt="新京">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/金沙.jpg" alt="金沙">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/星際.jpg" alt="星際">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/十六.jpg" alt="十六">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/天地.jpg" alt="天地">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/東京.jpg" alt="東京">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美獅.jpg" alt="美獅">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/銀河.jpg" alt="銀河">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新𡶶.jpg" alt="新𡶶">
             <div class="slide-caption">
-                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬1000元優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
+                <div class="promotion-text">歡迎來到543627網,澳門桑拿享受專屬$1000元$優惠,免費接送和送服務小工！只需告訴我們時間和上車點！</div>
             </div>
         </div>
         <div class="slide-dots">
@@ -832,47 +816,42 @@
         
         <h2 class="section-title">尊貴服務</h2>
         <div class="cards">
-            <a href="guide.html" class="card">
-                <div class="card-icon"></div>
-                <h3 class="card-title">澳門桑拿攻略</h3>
-                <p class="card-description">探索澳門夜間娛樂的精華指南，助您規劃完美的夜生活體驗。</p>
-                <div class="card-button">查看攻略</div>
-            </a>
+
             <div class="card">
                 <div class="card-icon"></div>
-                <h3 class="card-title">澳門桑拿/水療</h3>
-                <p class="card-description">豪華水療服務提供最頂級的放鬆體驗，專業按摩師為您緩解壓力，恢復活力。</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <h3 class="card-title">澳門桑拿攻略</h3>
+                <p class="card-description">消費模式與特色玩法。</p>
+                <a href="macau-sauna-experience.html" class="card-button">了解更多</a>
             </div>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">澳門桑拿收費</h3>
                 <p class="card-description">澳門桑拿收费為数千澳门元不等,點了解更多可查看。</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <a href="macau-sauna-detail.html" class="card-button">了解更多</a>
             </div>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">贈送服務</h3>
                 <p class="card-description">贈送專業服務小工，令你享有更多的服務體驗。</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <a href="macau-sauna-detail.html" class="card-button">了解更多</a>
             </div>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">澳門桑拿私人接送服務</h3>
                 <p class="card-description">我們提供專業的私人接送服務，讓您享受便捷舒適的往返體驗,你自己去和打車是沒有優惠的。</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <a href="macau-sauna-detail.html" class="card-button">了解更多</a>
             </div>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">預定福利</h3>
                 <p class="card-description">提前預定可有高福利回饋,<br>讓你享有物超所值的消費。</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <a href="macau-sauna-detail.html" class="card-button">了解更多</a>
             </div>
             <div class="card">
                 <div class="card-icon"></div>
                 <h3 class="card-title">澳門桑拿推薦</h3>
                 <p class="card-description">壹號桑拿,豪門桑拿,皇家金堡水療中心</p>
-                <a href="detail.html" class="card-button">了解更多</a>
+                <a href="macau-sauna-detail.html" class="card-button">了解更多</a>
             </div>
         </div>
     </div>
