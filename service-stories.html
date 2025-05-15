@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務分享故事選擇</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #d5bd7a;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .story-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .story-card {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(15, 15, 15, 0.85));
+            border: 1px solid rgba(213, 189, 122, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 10px rgba(213,189,122,0.1);
+            border-radius: 10px;
+            padding: 35px 30px;
+            width: 28%;
+            min-width: 250px;
+            max-width: 320px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .story-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            border-color: #d5bd7a;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.5), 0 0 20px rgba(213,189,122,0.2);
+        }
+        .story-title {
+            color: #d5bd7a;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+        .story-desc {
+            color: #b0b0b0;
+            font-size: 1em;
+            margin-bottom: 25px;
+            min-height: 48px;
+        }
+        .story-link {
+            display: inline-block;
+            padding: 8px 22px;
+            background: linear-gradient(90deg, #d5bd7a, #c8ae67);
+            color: #050505;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            transition: background 0.3s, color 0.3s;
+        }
+        .story-link:hover {
+            background: #e6d294;
+            color: #222;
+        }
+        @media (max-width: 900px) {
+            .story-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .story-card {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background: linear-gradient(145deg, #d5bd7a, #c8ae67); color: #050505; text-decoration: none; border-radius: 5px; font-weight: 500; transition: all 0.3s ease; z-index: 1000;">返回首頁</a>
+    <div class="container">
+        <h1 class="page-title">服務分享故事選擇</h1>
+        <div class="story-cards">
+            <div class="story-card">
+                <div class="story-title">首次去澳門體驗桑拿</div>
+                <div class="story-desc">一位香港客戶首次體驗澳門桑拿的真實分享，從接送到服務全程體驗。</div>
+                <a href="首次去澳門體驗桑拿.html" class="story-link">閱讀分享</a>
+            </div>
+            <div class="story-card">
+                <div class="story-title">澳門桑拿深度體驗</div>
+                <div class="story-desc">從上海飛抵澳門，親身感受帝湖桑拿的高品質服務與貼心體驗。</div>
+                <a href="澳門桑拿深度體驗.html" class="story-link">閱讀分享</a>
+            </div>
+            <div class="story-card">
+                <div class="story-title">澳門速刷之行</div>
+                <div class="story-desc">朋友推薦，享受澳門桑拿優惠與專車接送，流程順暢、服務貼心。</div>
+                <a href="澳門速刷之行.html" class="story-link">閱讀分享</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
