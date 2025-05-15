@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 預約按鈕點擊事件
             const reservationButton = document.querySelector('.reservation-button');
             if (reservationButton) {
                 reservationButton.addEventListener('click', function() {
@@ -18,10 +19,36 @@
                     }
                 });
             }
+
+            // 訪問計數
+            const visitorKey = 'hasVisited';
+            const countKey = 'visitorCount';
+            if (!localStorage.getItem(visitorKey)) {
+                let count = parseInt(localStorage.getItem(countKey) || '0') + 1;
+                localStorage.setItem(countKey, count.toString());
+                localStorage.setItem(visitorKey, 'true');
+                document.getElementById('visitorCount').textContent = count;
+            } else {
+                let count = localStorage.getItem(countKey) || '0';
+                document.getElementById('visitorCount').textContent = count;
+            }
         });
     </script>
     <style>
-
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .logo {
+            width: 75px;
+            height: 75px;
+            transition: transform 0.3s ease;
+            margin-right: 20px;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
         body {
             margin: 0;
             padding: 0;
@@ -532,6 +559,16 @@
         .keywords-list span:hover {
             color: #d5bd7a;
         }
+        .visitor-count {
+            text-align: center;
+            color: #808080;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        .visitor-count span {
+            color: #d5bd7a;
+            font-weight: 500;
+        }
         .footer-bottom::before {
             content: '';
             position: absolute;
@@ -618,13 +655,13 @@
             }
         }
         .macau-sauna-title {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 30px;
             margin: 0 auto;
             animation: fadeIn 0.8s ease-in;
-            position: relative;
             max-width: 1200px;
             padding: 50px 20px 30px;
         }
@@ -691,6 +728,7 @@
                 font-size: 2em;
             }
             .macau-sauna-title {
+            position: relative;
                 flex-direction: column;
                 gap: 15px;
             }
@@ -707,8 +745,10 @@
     </style>
 </head>
 <body>
-
-    <div class="macau-sauna-title">
+        <div class="macau-sauna-title">
+        <div class="logo-container">
+            <img src="images/macau-sauna.jpg" alt="澳門桑拿" class="logo">
+        </div>
         <h2>澳門桑拿/水療</h2>
         <div class="macau-news-links">
             <a href="macau-sauna-detail.html" class="macau-news-link">桑拿收費</a>
@@ -931,6 +971,9 @@
 
         </div>
         <div class="footer-bottom">
+            <div class="visitor-count">
+                瀏覽次數：<span id="visitorCount">0</span>
+            </div>
             <p>© 2025 543627 版權所有分享澳門桑拿、澳門spa、澳门水疗<span>壹號桑拿</span>，<span>豪門桑拿</span>，<span>尊貴水療</span>，<span>帝湖水療</span>，<span>極品桑拿</span>，<span>東方皇堡</span>，<span>十八桑拿</span>，<span>澳門晉會桑拿</span>，<br>澳门水疗折扣，澳门桑拿优惠攻略合集，澳門桑拿收費,澳門桑拿玩法,澳門桑拿時間,澳門桑拿近況,澳門桑拿排名,澳門桑拿推介,讓你澳門桑拿，物超所值。！</p>
             <div class="keywords-list">
                 543627
