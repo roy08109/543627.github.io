@@ -203,8 +203,11 @@
 
         .social-icons {
             display: flex;
+            flex-wrap: nowrap;
             gap: 15px;
             margin: 15px 0;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .social-icon {
@@ -383,12 +386,12 @@
                     <h3>聯繫我們享有專屬優惠，交個朋友！</h3>
                     <div class="social-icons">
                         <div class="social-icon-container">
-                        <img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon" onclick="copyWechatId(); return false;">
-                        <div class="wechat-hover">
-                            <span class="wechat-text">macaudada</span>
-                            <button class="copy-button" onclick="copyWechatId()">複製</button>
+                            <img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon" onclick="copyWechatId(); return false;">
+                            <div class="wechat-hover">
+                                <span class="wechat-text">macaudada</span>
+                                <button class="copy-button" onclick="copyWechatId()">複製</button>
+                            </div>
                         </div>
-                    </div>
                         <div class="social-icon-container">
                             <a href="https://line.me/ti/p/MSTBNXksRu" target="_blank"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
                         </div>
@@ -399,7 +402,21 @@
                                 <button class="copy-button" onclick="copyWhatsAppId(); return false;">複製</button>
                             </div>
                         </div>
-                        <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+                        <div class="social-icon-container">
+                            <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://x.com/macaudada" target="_blank"><img src="images/通信軟件/x.png" alt="X" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.facebook.com/profile.php?id=61576200757722" target="_blank"><img src="images/通信軟件/facebook.png" alt="Facebook" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.instagram.com/macaudada7/" target="_blank"><img src="images/通信軟件/instagram.png" alt="Instagram" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.tiktok.com/@macaudada" target="_blank"><img src="images/通信軟件/tiktok.png" alt="TikTok" class="social-icon"></a>
+                        </div>
                     </div>
                     <p>每日營業 12:00 - 翌日 04:00</p>
                     <div class="price-tag">套票價格：由 MOP 688 起</div>
