@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門桑拿飛虎出征 - 真實分享</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #d5bd7a, #c8ae67);
+            color: #050505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .back-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(213, 189, 122, 0.3);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #d5bd7a;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(213, 189, 122, 0), rgba(213, 189, 122, 1), rgba(213, 189, 122, 0));
+            box-shadow: 0 0 10px rgba(213, 189, 122, 0.3);
+        }
+        .price-list {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .price-item {
+            width: 400px;
+        }
+        .price-item {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            padding: 30px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(213, 189, 122, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        .price-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(213, 189, 122, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(213, 189, 122, 0.3);
+        }
+        .service-name {
+            color: #d5bd7a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .service-price {
+            color: #e6d294;
+            font-size: 2em;
+            margin: 20px 0;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        .service-description {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .service-features li {
+            color: #c0c0c0;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .service-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #d5bd7a;
+        }
+        .note {
+            text-align: center;
+            color: #808080;
+            font-size: 0.9em;
+            margin-top: 50px;
+            font-style: italic;
+        }
+        .featured-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .social-icons {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            margin: 15px 0;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            filter: brightness(1) drop-shadow(0 0 15px rgba(213, 189, 122, 0.4));
+        }
+        .social-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+        .wechat-hover {
+            display: none;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(5, 5, 5, 0.95);
+            padding: 8px 15px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        .wechat-text {
+            color: #d5bd7a;
+        }
+        .copy-button {
+            background: #d5bd7a;
+            color: #050505;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .social-icon-container:hover .wechat-hover {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-home" onclick="history.back(); return false;">返回上一頁</a>
+    <div class="container">
+        <h1 class="page-title">澳門桑拿飛虎出征</h1>
+        <div class="price-list">
+            <div class="price-item">
+                <div class="service-features" style="text-indent: 2em; line-height: 2; margin: 20px 0;">
+                    <p>結束了一周緊張的工作後，我和三位好友相約前往澳門放鬆。我們在上環碼頭集合，商討今日的行程安排。除了賭場和美食，我們還計劃尋找一個優質的休閒場所。經過網上搜索，我們找到了一家口碑極佳的桑拿網。</p>
+                    <p>抵達澳門後，我們先前往美獅美高梅度過了一段刺激的時光，戰績相當不錯。之後在當地一家知名的大排檔享用了豐盛的晚餐。用餐期間，我們聯繫了桑拿會所的客服，他們的響應速度令人印象深刻，五分鐘內就安排好了專車接送。</p>
+                    <p>經過詳細了解後，我們選擇了18桑拿。客服承諾提供1,000元的優惠，這讓我們感到非常驚喜。抵達會所後，我們被熱情的接待人員迎入，整個場所的裝潢和氛圍都透露著高端與品質。</p>
+                    <p>在更衣室換好服裝後，我們來到了寬敞明亮的大廳。這裡的服務人員不僅專業，更帶著真誠的微笑，讓人感到格外舒適。大廳內的環境優雅，設施一應俱全，讓人瞬間放鬆下來。我們幾個朋友享受著專業的按摩服務，技師愉快地交談，氣氛輕鬆愉悅。</p>
+                    <p>技師的技術相當專業，懂得精準找到身體緊繃的部位進行舒緩。在專業的服務下，整個人都得到了徹底的放鬆。之後，我們還在水療區享受了蒸汽浴和水療池，讓疲憊的身心得到了極大的舒緩。</p>
+                    <p>結帳時，工作人員親切地為我們結算1000元優惠是堅料，整個過程簡單快捷。離開前通知客服,貼心地安排好了專車，將我們舒適地送回港澳碼頭。從預約、接送到服務體驗，每一個環節都體現了他們對客人的用心。</p>
+                    <p>這次的澳門之行，不僅收穫了賭場的好運，更感受到了頂級的桑拿服務。18桑拿的專業和貼心，讓我們的旅程畫上了完美的句點。相信下次來澳門，我們一定會再次光顧，享受這份難得的愜意與放鬆！</p>
+                    
+                    <p style="color: #d5bd7a; margin-top: 30px;">#澳門桑拿 #18桑拿 #澳門按摩 #澳門夜生活 #美獅美高梅 #澳門旅遊</p>
+                </div>
+
+                <h3 style="color: #d5bd7a; font-size: 1.5em; margin: 40px 0 20px; text-align: center;">聯絡我們</h3>
+                <div class="social-icons">
+                    <div class="social-icon-container">
+                        <img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon" onclick="copyWechatId(); return false;">
+                        <div class="wechat-hover">
+                            <span class="wechat-text">macaudada</span>
+                            <button class="copy-button" onclick="copyWechatId()">複製</button>
+                        </div>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://line.me/ti/p/MSTBNXksRu" target="_blank"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
+                    </div>
+                    <div class="social-icon-container">
+                        <img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon" onclick="copyWhatsAppId(); return false;">
+                        <div class="wechat-hover">
+                            <span class="wechat-text">+852-59742108</span>
+                            <button class="copy-button" onclick="copyWhatsAppId()">複製</button>
+                        </div>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://x.com/macaudada" target="_blank"><img src="images/通信軟件/x.png" alt="X" class="social-icon"></a>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://www.facebook.com/profile.php?id=61576200757722" target="_blank"><img src="images/通信軟件/facebook.png" alt="Facebook" class="social-icon"></a>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://www.instagram.com/macaudada7/" target="_blank"><img src="images/通信軟件/instagram.png" alt="Instagram" class="social-icon"></a>
+                    </div>
+                    <div class="social-icon-container">
+                        <a href="https://www.tiktok.com/@macaudada" target="_blank"><img src="images/通信軟件/tiktok.png" alt="TikTok" class="social-icon"></a>
+                    </div>
+                </div>
+                <p style="text-align: center; color: #b0b0b0;">營業時間：每日 下午15:00~次日5:00</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyWechatId() {
+            navigator.clipboard.writeText('macaudada')
+                .then(() => {
+                    alert('WeChat ID已複製到剪貼板！');
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+
+        function copyWhatsAppId() {
+            navigator.clipboard.writeText('+852-59742108')
+                .then(() => {
+                    alert('WhatsApp號碼已複製到剪貼板！');
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+    </script>
+</body>
+</html>
