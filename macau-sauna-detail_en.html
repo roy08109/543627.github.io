@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauna Service Details - Macau Sauna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
+            color: #f0f0f0;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            padding: 15px 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            backdrop-filter: blur(3px);
+        }
+
+        .nav-button:hover {
+            background: rgba(213, 189, 122, 0.2);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(213, 189, 122, 0.3);
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .detail-title {
+            font-size: 2.5em;
+            color: #d5bd7a;
+            font-weight: bold;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            letter-spacing: 5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(213, 189, 122, 0.2);
+            background: linear-gradient(to bottom, #e6d294, #c8ae67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 20px;
+        }
+
+        .detail-subtitle {
+            font-size: 1.2em;
+            color: #b8b8b8;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .detail-content.fade {
+            opacity: 0;
+        }
+
+        .detail-image {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            aspect-ratio: 16/9;
+            border: 2px solid transparent;
+            border-image: linear-gradient(to bottom right, #e6d294, #c8ae67, #d5bd7a, #c8ae67) 1;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(200, 174, 103, 0.3);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-info {
+            padding: 20px;
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
+            border: 1px solid rgba(213, 189, 122, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-section h3 {
+            color: #d5bd7a;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .info-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(213, 189, 122, 0.7), rgba(213, 189, 122, 0.1));
+        }
+
+        .info-section p {
+            color: #c0c0c0;
+            line-height: 1.8;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            color: #c0c0c0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '✧';
+            position: absolute;
+            left: 0;
+            color: #d5bd7a;
+        }
+        .golden-text {
+            color: #d5bd7a;
+        }
+        .benefit-title {
+            color: #d5bd7a;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: transparent;
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            margin: 15px 0;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            filter: brightness(1) drop-shadow(0 0 15px rgba(213, 189, 122, 0.4));
+        }
+
+        .social-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .wechat-hover {
+            display: none;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(5, 5, 5, 0.95);
+            padding: 8px 15px;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .wechat-hover::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: rgba(5, 5, 5, 0.95);
+            border-left: 1px solid rgba(213, 189, 122, 0.3);
+            border-top: 1px solid rgba(213, 189, 122, 0.3);
+        }
+
+        .wechat-text {
+            color: #d5bd7a;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            color: #d5bd7a;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: rgba(213, 189, 122, 0.1);
+            border-color: rgba(213, 189, 122, 0.5);
+        }
+
+        .social-icon-container:hover .wechat-hover {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #d5bd7a;
+            border: 1px solid rgba(213, 189, 122, 0.3);
+            padding: 15px 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            backdrop-filter: blur(3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-title {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 1.2rem;
+            }
+
+            .prev-button {
+                left: 10px;
+            }
+
+            .next-button {
+                right: 10px;
+            }
+        }
+
+        .nav-button:hover {
+            background: rgba(213, 189, 122, 0.2);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(213, 189, 122, 0.3);
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="nav-button prev-button" onclick="changeLocation('prev')">❮</button>
+    <button class="nav-button next-button" onclick="changeLocation('next')">❯</button>
+
+    <div class="container">
+        <div class="detail-header">
+            <h1 class="detail-title">East Castle Spa</h1>
+            <div class="detail-subtitle">The ultimate experience of luxury</div>
+        </div>
+
+        <div class="detail-content">
+            <div class="detail-image">
+                <img src="images/東方皇堡水療.jpg" alt="東方皇堡水療">
+            </div>
+
+            <div class="detail-info">
+                <div class="info-section">
+                    <h3>Service Introduction</h3>
+                    <p>Oriental Royal Castle Spa provides you with the best sauna experience, integrating traditional oriental health wisdom with modern luxury facilities to create a unique leisure space. Our professional team will bring you unparalleled relaxation.</p>
+                </div>
+
+                <div class="info-section">
+                    <h3>Price List</h3>
+                    <ul class="features-list">
+                        <li>12 小時入場費 Entrance Fee (12 hours) 1,568</li>
+                        <li>美容香薰 Spa80min 2,199</li>
+                        <li>(自選) 主題 Spa/Free Style Spa 2,998</li>
+                        <li>(特選) 主題 Spa/Aroma Theme Spa 3,398</li>
+                        <li>(貴族) 主題 Spa/Noble Aroma Theme Spa 3,798</li>
+                        <li>(歐式) 主題 Spa/Europe Aroma Theme Spa 4,198</li>
+                        <li>(尊貴) 主題 Spa/Primer Aroma Theme Spa 4,298</li>
+                        <li>(環亞) 主題 Spa/Grand Asia Aroma Theme Spa 4,698</li>
+                        <li>(日本) 主題 Spa/Japan Style Aroma Theme Spa 5,764</li>
+                        <li>雙妃優惠 1,200 起</li>
+                        <li>以上價格需另收 10% 服務費和 5% 旅遊稅。</li>
+                        <li>the above subject to a 10% service charge and 5% tourist tax</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h3>Contact us to enjoy exclusive offers and make friends!！</h3>
+                    <div class="social-icons">
+                        <div class="social-icon-container">
+                            <img src="images/通信軟件/wechat.png" alt="WeChat" class="social-icon" onclick="copyWechatId(); return false;">
+                            <div class="wechat-hover">
+                                <span class="wechat-text">macaudada</span>
+                                <button class="copy-button" onclick="copyWechatId()">複製</button>
+                            </div>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://line.me/ti/p/MSTBNXksRu" target="_blank"><img src="images/通信軟件/LINE.png" alt="LINE" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="javascript:void(0)" onclick="copyWhatsAppId(); return false;"><img src="images/通信軟件/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+                            <div class="wechat-hover">
+                                <span class="wechat-text">+852-59742108</span>
+                                <button class="copy-button" onclick="copyWhatsAppId(); return false;">複製</button>
+                            </div>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://t.me/macaudada" target="_blank"><img src="images/通信軟件/Telepram.png" alt="Telegram" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://x.com/macaudada" target="_blank"><img src="images/通信軟件/x.png" alt="X" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.facebook.com/profile.php?id=61576200757722" target="_blank"><img src="images/通信軟件/facebook.png" alt="Facebook" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.instagram.com/macaudada7/" target="_blank"><img src="images/通信軟件/instagram.png" alt="Instagram" class="social-icon"></a>
+                        </div>
+                        <div class="social-icon-container">
+                            <a href="https://www.tiktok.com/@macaudada" target="_blank"><img src="images/通信軟件/tiktok.png" alt="TikTok" class="social-icon"></a>
+                        </div>
+                    </div>
+                    <p>每日營業 12:00 - 翌日 04:00</p>
+                    <div class="price-tag">套票價格：由 MOP 688 起</div>
+                </div>
+
+                <a href="index_en.html" class="back-button">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyWechatId() {
+            navigator.clipboard.writeText('macaudada')
+                .then(() => {
+                    const button = document.querySelector('.copy-button[onclick*="copyWechatId"]');
+                    if (button) {
+                        button.textContent = '已複製';
+                        setTimeout(() => {
+                            button.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+
+        function copyLineId() {
+            navigator.clipboard.writeText('59742108')
+                .then(() => {
+                    const lineButton = document.querySelector('.copy-button[onclick*="copyLineId"]');
+                    if (lineButton) {
+                        lineButton.textContent = '已複製';
+                        setTimeout(() => {
+                            lineButton.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+
+        function copyWhatsAppId() {
+            navigator.clipboard.writeText('59742108')
+                .then(() => {
+                    const whatsappButton = document.querySelector('.copy-button[onclick*="copyWhatsAppId"]');
+                    if (whatsappButton) {
+                        whatsappButton.textContent = '已複製';
+                        setTimeout(() => {
+                            whatsappButton.textContent = '複製';
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error('複製失敗:', err);
+                });
+        }
+
+
+        const locations = [
+            {
+                name: 'East Castle Spa',
+                subtitle: 'The ultimate experience of luxury',
+                image: 'images/東方皇堡水療.jpg',
+                description: 'The main features of Oriental Royal Castle are script-killing, AV scenario role-playing, (classroom, hospital, beast, waiter, stewardess, secretary) and other scripts. High-quality dishes, Chinese, Taiwanese, Japanese, Korean, Vietnamese, European, after professional training, the movie plot atmosphere is full, very coordinated with the progress. Complete facilities.',
+                features: [
+                    ' Entrance Fee (12 hours) 1,568',
+                    ' Spa80min 2,199',
+                    'Spa/Free Style Spa 2,998',
+                    'Spa/Aroma Theme Spa 3,398',
+                    'Spa/Noble Aroma Theme Spa 3,798',
+                    'Spa/Europe Aroma Theme Spa 4,198',
+                    'Spa/Primer Aroma Theme Spa 4,298',
+                    'Spa/Grand Asia Aroma Theme Spa 4,698',
+                    'Spa/Japan Style Aroma Theme Spa 5,764',
+                    'Double Concubine Discount 1,200 UP',
+                    'Note: Golf main room will be charged an additional 500 ',
+                    'the above subject to a 10% service charge and 5% tourist tax',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'Premium Spa',
+                subtitle: 'Enjoy a luxurious spa experience',
+                image: 'images/尊貴水療.jpg',
+                description: 'The luxurious spa is decorated in European style. The environment is elegant and the facilities are complete. The rooms, rest areas and baths allow you to enjoy an unparalleled relaxing time here because it is newly renovated. When you are selecting the scenery, all the girls will form a beautiful scenery line for the bosses to watch and choose. You can observe and interact closely, and you can also arrange a separate room to rest in the second half of the night.',
+                features: [
+                    'Entrance Fee (12 hours) 1,568',
+                    'Spa80min 2,199',
+                    'Spa/Free Style Spa 2,998',
+                    'Spa/Aroma Theme Spa 3,398',
+                    'Spa/Noble Aroma Theme Spa 3,798',
+                    'Spa/Europe Aroma Theme Spa 4,198',
+                    'Spa/Primer Aroma Theme Spa 4,298',
+                    'Spa/Grand Asia Aroma Theme Spa 4,698',
+                    'Spa/Japan Style Aroma Theme Spa 5,764',
+                    'Double Concubine Discount 1,200 UP',
+                    'the above subject to a 10% service charge and 5% tourist tax',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'Haomen Sauna',
+                subtitle: 'The ultimate in comfort and enjoyment',
+                image: 'images/豪門桑拿.png',
+                description: 'Haomen Sauna is the first choice in the city center. It has a spacious space. The number of beauties in Haomen is kept at about 100 (Chinese, Vietnamese, Thai, Taiwanese, Japanese, Korean, and Russian). The dishes are complete. The stage scenery talent show mode starts at 6 o clock every night. You can interact with customers and customers sit aside to watch the scenery!',
+                features: [
+                    'Interstellar Japanese and Korean Massage（60 minute）- MOP 6,588',
+                    'Japanese and Korean massage（60 minute）- MOP 5,988',
+                    'Super Deluxe Massage (60 minutes) - MOP 5,288',
+                    'European Massage (60 minutes) - MOP 4,988',
+                    'Super Star Massage (60 minutes) - MOP 4,388',
+                    'Star Massage (60 minutes) - MOP 3,988',
+                    'Star Vietnamese Massage (60 minutes) - MOP 3,988',
+                    'Asian Massage (60 minutes) - MOP 3,988',
+                    'Vietnamese Massage (60 minutes) - MOP 2,988',
+                    'Shanghai Massage (90 minutes) - MOP 2,188',
+                    'Healthy Finnish Bath / Ticket (12 hours) - MOP 1,788',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'Triumph Sauna',
+                subtitle: 'The ultimate experience of noble enjoyment',
+                image: 'images/凱旋桑拿.png',
+                description: 'Kaixuan Sauna provides the best sauna experience. It has a superior geographical location and is close to entertainment venues such as MGM, Wynn, and StarWorld Hotel. You can choose beautiful women to stand in a row in front of you and enjoy the immersive experience (Vietnamese, Chinese, Taiwanese, Japanese, and Korean) in detail.',
+                features: [
+                    'Jingsang $1888',
+                    'Shanghai Style $2298',
+                    'Eastern Model (2XX) $2998 Double Flight plus $1000',
+                    'Eastern Super Model (3XX) $3698 Double Flight plus $1200',
+                    'Super Model (5/6XX) $3698 Double Flight plus $1200',
+                    'Talent (8XX) $4398 Double Flight plus $1500',
+                    'Asia (10XX) $4998 Double Flight plus $2300',
+                    'European and American Model (9XX) $4298 Double Flight plus $1500',
+                    'Korean Model (7XX) $5598 Double Flight plus $3800',
+                    'Japanese Model (7XX) $5798 Double Flight plus $3800',
+                    'Note: All consumption is subject to a 10% service charge',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'The One Sauna',
+                subtitle: 'Exquisite and luxurious wellness space',
+                image: 'images/壹號桑拿.jpg',
+                description: 'The One Sauna is the most popular sauna in Macau. There are more than 100 beauties every day. You must have your favorite type (Chinese, Vietnamese, Japanese, Korean, Russian, Ukrainian, Thai, Taiwanese). The menu is complete, and the water bed service is Dongguan-style. It is the most popular choice. At 6 pm every day, the beauties will walk freely in the lobby, which is a feast for the eyes. Please note that <there will be a lot of people on holidays and you have to queue up>.',
+                features: [
+                    '7XX Vietnam-Thailand 3088 double flights plus 900',
+                    '8XX Mongolia-Thailand-Vietnam 3488 double flights plus 1400',
+                    '1XXX Taiwan 3688 double flights plus 1000',
+                    '2XXX Taiwan model 3988 double flights plus 1700',
+                    '3XXX Taiwan Super 4588 double flights plus 2100',
+                    '6XXX Europe 4188 double flights plus 3388',
+                    '8XXX Japan 5288 double flights plus 4488',
+                    '9XXX Korea 5788 double flights plus 4988',
+                    '6XX Japan-Korea AV 7088 double flights plus 6288',
+                    '6XX Korea Global 7488 double flights plus 6688',
+                    '60 minutes / above without 10% government tax',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'The Excellent Sauna',
+                subtitle: 'Top-level space for ultimate enjoyment',
+                image: 'images/極品桑拿.jpeg',
+                description: 'The best sauna features script-killing, role-playing AV theme rooms (DJ room, SM room, office, karaoke room, hospital), etc. There are waterbed services and role-playing. The theme room requires an additional charge of 400, and props and stockings require an additional charge of 200. Chinese, Thai, Vietnamese, Korean, Russian, Japanese, European and American women are available.',
+                features: [
+                    'Sauna Spa only (15 hours) $1988',
+                    'SPA Excellent Shanghai style Massage & Sauna (90 mins) $2388',
+                    'LADY SPA Excellent Southeast Asia Lady Spa (50 mins) $3288',
+                    'LADY SPA Excellent Southeast Asia Model Lady Spa (50 mins) $3838',
+                    'LADY SPA Excellent Southeast Asia Star Lady Spa (50 mins) $4188',
+                    'LADY SPA Excellent Super Model Lady Spa (50 mins) $3838',
+                    'LADY SPA Excellent Super Star Model Lady Spa (50 mins) $4538',
+                    'LADY SPA Excellent Global Lady Spa (50 mins) $5238',
+                    'LADY SPA Excellent Russia Lady Spa (50 mins) $4838',
+                    'LADY SPA Excellent Japan Lady Spa (50 mins) $6038',
+                    'LADY SPA Excellent Korea Lady Spa (50 mins) $6038',
+                    'LADY SPA Excellent Singapore Lady Spa (50 mins) $6038',
+                    'LADY SPA Excellent japan star lady spa (50 mins) $6438',
+                    'LADY SPA Excellent korea star lady spa (50 mins) $6438',
+                    '（Additional charge for all the theme room ）$440',
+                    'All charges include 5% government tax and 5% service charge (including tips and expenses)',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: '18 Sauna',
+                subtitle: 'Exquisite and comfortable leisure space',
+                image: 'images/18桑拿.jpg',
+                description: 'Eighteen Sauna is an old sauna in Macau, with very good service and a complete range of dishes (Chinese, Japanese, Korean, Taiwanese, Vietnamese, Thai, Russian, Ukrainian). If you want to choose European and American beauties, it is the first choice. There is a stage audition at 7pm.',
+                features: [
+                    '18 Sauna - Single, Double',
+                    'Vietnamese 160 - 199 $3,330 Double plus $2,200',
+                    'SPA 100 - 159 $3,530 Double plus $2,200',
+                    'Vietnamese Premium 650 - 699 $3,730 Double plus $2,200',
+                    'SPA Premium 600 - 649 $3,930 Double plus $2,200',
+                    'European / Celebrity 800 - 999 $4,330 Double plus $2,400',
+                    'Foreign Ming 330 - 359 $4,630 Double plus $2,400',
+                    'Treasure Island 2XX $4,650 Double plus $3,000',
+                    'Supermodel / Foreign supermodel 7XX $4,950 3-way plus $3,400',
+                    'Japanese/Korean 3XX $5,550 3-way plus $3,850',
+                    'Shanghai style $2,280',
+                    'Purified water $1,780',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'MCLUB ',
+                subtitle: 'Stylish and exquisite leisure club',
+                image: 'images/MCLUB晉會.avif',
+                description: 'MCLUB Jinhui features script-killing, AV scenario role-playing, and other script options. High-quality dishes, Chinese, Taiwanese, Japanese, Korean, Vietnamese, European, professionally trained, full of movie plot atmosphere.',
+                features: [
+                    'Entrance Fee (12 hours) 1,568',
+                    'Spa80min 2,199',
+                    'Spa/Free Style Spa 2,998',
+                    'Spa/Aroma Theme Spa 3,398',
+                    'Spa/Noble Aroma Theme Spa 3,798',
+                    'Spa/Europe Aroma Theme Spa 4,198',
+                    'Spa/Primer Aroma Theme Spa 4,298',
+                    'Spa/Grand Asia Aroma Theme Spa 4,698',
+                    'Spa/Japan Style Aroma Theme Spa 5,764',
+                    'Double Concubine Discount 1,200 UP',
+                    'Note: Golf main room will be charged an additional 500 ',
+                    'the above subject to a 10% service charge and 5% tourist tax',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'Dihu Sauna',
+                subtitle: 'Top-level space for ultimate enjoyment',
+                image: 'images/帝湖桑拿.png',
+                description: 'The Dihu Sauna is the only new sauna in Taipa. The central stage of the talent show shows the beauty of China, Vietnam, Europe, Japan and South Korea. (Japanese and Korean supermodels are of high quality)',
+                features: [
+                    'Clean Sauna - $1888',
+                    'ShangHainese Massage - $2288',
+                    'Southeast Asian model - $3199',
+                    'Southeast Asian Supermodel - $3899',
+                    'Super model - $3899',
+                    'Talent - $4699',
+                    'Asia - $5199',
+                    'European And American Model - $4499',
+                    'Japanese Model - $5799',
+                    'Japanese Supermodel - $6199',
+                    'Korean Supermodel - $5899',
+                    'Korea Global - $6799',
+                    '10% Service fee will be Charged.',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            },
+            {
+                name: 'The Royla sauna',
+                subtitle: 'Premium space for noble enjoyment',
+                image: 'images/帝道桑拿.jpg',
+                description: 'The Di Dao Sauna Double Package now offers a buy one get one free promotion (Chinese, Vietnamese, Thai, Mongolian, Taiwanese, European)。',
+                features: [
+                    'HEALTHY SAUMA NATH 1888',
+                    'SHANGHAI STYLE MASSAGE 2188',
+                    'VIETNAMESE STYLE MIXED 3988',
+                    'THAI STYLE MIXED 4388',
+                    'MONGOLIA STYLE MIXED 4688',
+                    'MALA STYLE MIXED 4988',
+                    'TAI STYLE MIXED 5188',
+                    'EURO STYLE MIXED 5588',
+                    'No additional service charge',
+'Buy one get        one free promotion',
+                    '<span class="benefit-title">Reservation Benefits</span>',
+                    'I  provide free pick-up and drop-off services..',
+                    'Receive a complimentary 20-minute massage.',
+                    'Enjoy discounts on the  Macau sauna .(1000)',
+                    'Avoid waiting and make an appointment in advance',
+                ],
+                hours: 'Copy the link above and add friends in the corresponding APP!'
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateContent(location) {
+            const content = document.querySelector('.detail-content');
+            content.classList.add('fade');
+
+            setTimeout(() => {
+                document.querySelector('.detail-title').textContent = location.name;
+                document.querySelector('.detail-subtitle').textContent = location.subtitle;
+                document.querySelector('.detail-image img').src = location.image;
+                document.querySelector('.detail-image img').alt = location.name;
+                document.querySelector('.info-section p').textContent = location.description;
+
+                const featuresList = document.querySelector('.features-list');
+                featuresList.innerHTML = location.features.map(feature => `<li>${feature}</li>`).join('');
+
+                document.querySelector('.info-section:nth-child(3) p').textContent = location.hours;
+                document.querySelector('.price-tag').textContent = location.price;
+
+                content.classList.remove('fade');
+            }, 300);
+        }
+
+        function changeLocation(direction) {
+            if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + locations.length) % locations.length;
+            } else {
+                currentIndex = (currentIndex + 1) % locations.length;
+            }
+            updateContent(locations[currentIndex]);
+        }
+
+        // 監聽鍵盤事件
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeLocation('prev');
+            } else if (e.key === 'ArrowRight') {
+                changeLocation('next');
+            }
+        });
+
+        // 初始化頁面內容
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent(locations[currentIndex]);
+        });
+    </script>
+</body>
+</html>

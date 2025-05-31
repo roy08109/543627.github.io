@@ -179,7 +179,7 @@
         /* 促銷文字的基本樣式設置 */
         .slide-caption .promotion-text {
             color: #ffffff;                                /* 文字顏色設為白色 */
-            font-size: 1.87em;                           /* 文字大小設為1.87倍 */
+            font-size: calc(12px + 1vw);                 /* 响应式字体大小，基础12px，随视口宽度增加1% */
             font-weight: 300;                            /* 文字粗細設為細體 */
             letter-spacing: 2px;                         /* 字間距設為2像素 */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);  /* 添加文字陰影效果 */
@@ -193,6 +193,12 @@
             text-align: center;                          /* 文字居中顯示 */
         }
 
+        @media (max-width: 768px) {
+            .slide-caption .promotion-text {
+                font-size: calc(10px + 1.5vw); /* 在较小屏幕上调整基础大小和缩放比例 */
+            }
+        }
+
         
         @keyframes slideLine {
             0% { transform: translateX(100%); }
@@ -200,11 +206,17 @@
         }
         .slide-caption .location-name {
             color: #d5bd7a;
-            font-size: 1.5em;
+            font-size: calc(10px + 0.8vw); /* 响应式字体大小，基础10px，随视口宽度增加0.8% */
             font-weight: 500;
             font-family: 'Playfair Display', 'Noto Serif TC', serif;
             letter-spacing: 2px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .slide-caption .location-name {
+                font-size: calc(8px + 1vw); /* 在较小屏幕上调整基础大小和缩放比例 */
+            }
         }
         .slide-dots {
             position: absolute;
@@ -771,7 +783,7 @@
 <body>
     <header style="display: flex; align-items: center; padding: 10px 20px; background-color: rgba(5, 5, 5, 0.8); border-bottom: 1px solid #c8ae67;">
         <div class="logo-container">
-            <img src="images/燈塔.png" alt="澳門桑拿 Logo" class="logo">
+            <img src="images/macau-sauna.jpg" alt="Macau Sauna Logo" class="logo">
             <h1 style="font-size: 1.5em; color: #e6d294; margin: 0; font-family: 'Playfair Display', serif;">澳門桑拿優惠網</h1>
         </div>
         <div class="lang-switch-container">
@@ -780,9 +792,6 @@
         </div>
     </header>
         <div class="macau-sauna-title">
-        <div class="logo-container">
-            <img src="images/macau-sauna.jpg" alt="澳門桑拿" class="logo">
-        </div>
         <h2>澳門桑拿/水療</h2>
         <div class="macau-news-links">
             <a href="macau-sauna-detail.html" class="macau-news-link">桑拿收費</a>
@@ -796,73 +805,73 @@
         <div class="slide active">
             <img src="images/hotel/永利.jpg" alt="永利">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美高梅.jpg" alt="美高梅">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/凯旋門.jpg" alt="凯旋門">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新京.jpg" alt="新京">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/金沙.jpg" alt="金沙">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
-            <img src="images/hotel/星际.jpg" alt="星际">
+            <img src="images/hotel/星際.jpg" alt="星際">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/十六.jpg" alt="十六">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/天地.jpg" alt="天地">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/東京.jpg" alt="東京">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美獅.jpg" alt="美獅">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/銀河.jpg" alt="銀河">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新𡶶.jpg" alt="新𡶶">
             <div class="slide-caption">
-                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #FFD700;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
+                <div class="promotion-text">澳門桑拿<span style="font-size: 2em; color: #d5bd7a;">$1000元$</span>優惠<br>免費接送和送服務小工！</div>
             </div>
         </div>
         <div class="slide-dots">
