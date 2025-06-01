@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Flow Chart - Macau Sauna Offers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZHRoPSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
+            font-family: 'Playfair Display', 'Noto Serif TC', serif; /* English font first */
+            color: #f0f0f0;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px; /* Add some padding at the top */
+            padding-bottom: 20px; /* Add some padding at the bottom */
+        }
+        h1 {
+            color: #d5bd7a;
+            text-align: center;
+            font-size: calc(20px + 1.5vw); /* Responsive font size */
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            background-color: rgba(28, 28, 28, 0.8); /* Slightly transparent background */
+            border: 1px solid #d5bd7a;
+            border-radius: 8px;
+            padding: 30px; /* Increased padding */
+            margin-bottom: 30px;
+            text-align: center; /* Center the flowchart */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+            max-width: 90%; /* Ensure it doesn't get too wide on large screens */
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: calc(8px + 0.5vw) calc(15px + 0.5vw); /* Responsive padding */
+            background-color: #333;
+            color: #d5bd7a;
+            text-decoration: none;
+            border: 1px solid #d5bd7a;
+            border-radius: 4px;
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: calc(12px + 0.5vw); /* Responsive font size */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #d5bd7a;
+            color: #050505;
+        }
+        /* Mermaid specific styling for nodes and edges */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: #2a2a2a !important; /* Node background color */
+            stroke: #d5bd7a !important; /* Node border color */
+            stroke-width: 2px !important;
+            color: #f0f0f0 !important; /* Text color inside nodes */
+        }
+        .mermaid .node .label {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif !important;
+            color: #f0f0f0 !important; /* Ensure text color is applied */
+        }
+        .mermaid .edgePath path {
+            stroke: #d5bd7a !important; /* Edge color */
+            stroke-width: 1.5px !important;
+        }
+        .mermaid .arrowheadPath {
+            fill: #d5bd7a !important; /* Arrowhead color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Service Flow Chart</h1>
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+
+    <div class="mermaid">
+        graph TD
+            A[Reservation] --> B(Arrange car to pick up guest);
+            B --> C{Transport to service venue};
+            C --> D[Engage in consumption activities];
+            D --> E[Settlement];
+            E --> F[Enjoy $1,000 discount];
+            F --> G{Contact customer service};
+            G --> H[Pick up and return to hotel];
+    </div>
+
+    <a href="index_en.html" class="back-link">Back to Home</a>
+
+</body>
+</html>
