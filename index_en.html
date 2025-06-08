@@ -30,18 +30,7 @@
                 });
             }
 
-            // 訪問計數
-            const visitorKey = 'hasVisited';
-            const countKey = 'visitorCount';
-            if (!localStorage.getItem(visitorKey)) {
-                let count = parseInt(localStorage.getItem(countKey) || '0') + 1;
-                localStorage.setItem(countKey, count.toString());
-                localStorage.setItem(visitorKey, 'true');
-                document.getElementById('visitorCount').textContent = count;
-            } else {
-                let count = localStorage.getItem(countKey) || '0';
-                document.getElementById('visitorCount').textContent = count;
-            }
+
         });
     </script>
     <style>
@@ -839,80 +828,59 @@
         <div class="slide active">
             <img src="images/hotel/永利.jpg" alt="永利">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/美高梅.jpg" alt="美高梅">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/凯旋門.jpg" alt="凯旋門">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/新京.jpg" alt="新京">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="images/hotel/金沙.jpg" alt="金沙">
-            <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/星際.jpg" alt="星際">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/十六.jpg" alt="十六">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/天地.jpg" alt="天地">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/東京.jpg" alt="東京">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="images/hotel/美獅.jpg" alt="美獅">
-            <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide">
             <img src="images/hotel/銀河.jpg" alt="銀河">
             <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="images/hotel/新𡶶.jpg" alt="新𡶶">
-            <div class="slide-caption">
-                <div class="promotion-text">Macau Sauna<span style="font-size: 2em; color: #d5bd7a;">$1000$</span>discount<br>Free pick-up and drop-off service！</div>
+                <div class="promotion-text">Macau Sauna Official<span style="font-size: 2em; color: #d5bd7a;">$1000$</span> Discount<br>Best discount and best service</div>
             </div>
         </div>
         <div class="slide-dots">
             <div class="slide-dot active"></div>
-            <div class="slide-dot"></div>
-            <div class="slide-dot"></div>
-            <div class="slide-dot"></div>
             <div class="slide-dot"></div>
             <div class="slide-dot"></div>
             <div class="slide-dot"></div>
@@ -1059,9 +1027,7 @@
 
         </div>
         <div class="footer-bottom">
-            <div class="visitor-count">
-                瀏覽次數：<span id="visitorCount">0</span>
-            </div>
+
             <p>© 2025 macau-sauna-offers All rights reserved. Share Macau sauna, Macau spa, Macau spa <span>No. 1 Sauna</span>,<br> <span>Haomen Sauna</span>, <span>Noble Spa</span>, <span>Emperor Lake Spa</span>, <span>Top Sauna</span>, <span>Oriental Royal Castle</span>, <span>Eighteen Sauna</span>, <span>Macau Jinhui Sauna</span>, <br>Macau spa discounts, Macau sauna discount guide collection, Macau sauna charges, Macau sauna play, Macau sauna time,<br> Macau sauna recent situation, Macau sauna ranking, Macau sauna recommendation, let you Macau sauna, great value for money. !
             <div class="keywords-list">
                 543627
