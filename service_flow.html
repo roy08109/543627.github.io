@@ -1,104 +1,245 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <!-- Google tag (gtag.js) --> 
+    <script async src=" https://www.googletagmanager.com/gtag/js?id=AW-17040215810 "></script> 
+    <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+     
+      gtag('config', 'AW-17040215810'); 
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>服務流程圖 - 澳門桑拿優惠網</title>
+    <title>服務流程 - 澳門桑拿官方優惠網</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background-color: #050505;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZHRoPSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
-            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
-            color: #f0f0f0;
-            background-attachment: fixed;
+        .flow-container {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 20px; /* Add some padding at the top */
-            padding-bottom: 20px; /* Add some padding at the bottom */
         }
-        h1 {
-            color: #d5bd7a;
-            text-align: center;
-            font-size: calc(20px + 1.5vw); /* Responsive font size */
-            margin-bottom: 30px;
-        }
+        
         .mermaid {
-            background-color: rgba(28, 28, 28, 0.8); /* Slightly transparent background */
-            border: 1px solid #d5bd7a;
-            border-radius: 8px;
-            padding: 30px; /* Increased padding */
-            margin-bottom: 30px;
-            text-align: center; /* Center the flowchart */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
-            max-width: 90%; /* Ensure it doesn't get too wide on large screens */
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px auto;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: calc(8px + 0.5vw) calc(15px + 0.5vw); /* Responsive padding */
-            background-color: #333;
-            color: #d5bd7a;
-            text-decoration: none;
-            border: 1px solid #d5bd7a;
-            border-radius: 4px;
-            font-family: 'Noto Serif TC', serif;
-            font-size: calc(12px + 0.5vw); /* Responsive font size */
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .back-link:hover {
-            background-color: #d5bd7a;
-            color: #050505;
-        }
-        /* Mermaid specific styling for nodes and edges */
+
+        /* Mermaid specific styling overrides to match theme */
         .mermaid .node rect,
         .mermaid .node circle,
         .mermaid .node ellipse,
         .mermaid .node polygon {
-            fill: #2a2a2a !important; /* Node background color */
-            stroke: #d5bd7a !important; /* Node border color */
+            fill: rgba(30, 41, 59, 0.9) !important;
+            stroke: var(--primary) !important;
             stroke-width: 2px !important;
-            color: #f0f0f0 !important; /* Text color inside nodes */
         }
+        
         .mermaid .node .label {
             font-family: 'Noto Serif TC', serif !important;
-            color: #f0f0f0 !important; /* Ensure text color is applied */
+            color: var(--text-main) !important;
         }
+        
         .mermaid .edgePath path {
-            stroke: #d5bd7a !important; /* Edge color */
-            stroke-width: 1.5px !important;
+            stroke: var(--primary-glow) !important;
+            stroke-width: 2px !important;
         }
+        
         .mermaid .arrowheadPath {
-            fill: #d5bd7a !important; /* Arrowhead color */
+            fill: var(--primary) !important;
         }
     </style>
 </head>
 <body>
-    <h1>服務流程圖</h1>
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/macau-sauna.jpg" alt="Macau Sauna Logo" class="logo">
+            <span>澳門桑拿官方優惠網</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首頁</a>
+            <a href="service_flow.html" class="nav-link" style="color: var(--primary);">服務流程</a>
+            <a href="macau-sauna-detail.html" class="nav-link">桑拿收費</a>
+            <a href="info.html" class="nav-link">澳門資訊</a>
+            <a href="BaccaratGame/index.html" class="nav-link">模擬百家樂</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">中文</a>
+            <span style="color: var(--border-light);">|</span>
+            <a href="index_en.html" class="nav-link">ENG</a>
+        </div>
+    </header>
+
+    <div class="container flow-container">
+        <h1 class="section-title">服務流程圖</h1>
+        
+        <div class="mermaid">
+            graph TD
+                A[預約] --> B(安排車輛迎接客人);
+                B --> C{送至服務場所};
+                C --> D[進行消費活動];
+                D --> E[結算];
+                E --> F[享受800元優惠];
+                F --> G{聯繫客服};
+                G --> H[接回並送至酒店];
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                我們提供全程專車接送服務，確保您的行程安全隱密。如有任何疑問，歡迎隨時聯繫客服。
+            </p>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="index.html" class="cta-button" style="text-decoration: none; padding: 12px 30px; display: inline-block;">返回首頁</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>快速連結</h3>
+                <div class="footer-links">
+                    <a href="macau-sauna-experience.html">澳門夜生活攻略</a>
+                    <a href="macau-sauna-detail.html">桑拿服務詳情</a>
+                    <a href="info.html">澳門資訊</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>營業時間</h3>
+                <p style="color: var(--text-secondary);">每日: 下午15:00 ~ 次日5:00</p>
+            </div>
+            <div class="footer-col">
+                <h3>聯絡我們</h3>
+                <div class="social-bar social-grid">
+                    <!-- WeChat -->
+                    <div class="social-item">
+                        <div class="social-icon-wrapper" onclick="toggleSocialInfo(this)" title="WeChat: macaudada">
+                            <img src="images/通信軟件/wechat.png" alt="WeChat">
+                        </div>
+                        <div class="social-info">
+                            <span class="id-text">macaudada</span>
+                            <button class="copy-btn" onclick="copyWechatId()">複製</button>
+                        </div>
+                    </div>
+                    
+                    <!-- LINE -->
+                    <div class="social-item">
+                        <a href="https://line.me/ti/p/MSTBNXksRu" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/LINE.png" alt="LINE">
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="social-item">
+                        <div class="social-icon-wrapper" onclick="toggleSocialInfo(this)" title="WhatsApp: +852-59742108">
+                            <img src="images/通信軟件/whatsapp.png" alt="WhatsApp">
+                        </div>
+                        <div class="social-info">
+                            <span class="id-text">+852-59742108</span>
+                            <button class="copy-btn" onclick="copyWhatsAppId()">複製</button>
+                        </div>
+                    </div>
+
+                    <!-- Telegram -->
+                    <div class="social-item">
+                        <a href="https://t.me/macaudada" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/Telegram.png" alt="Telegram">
+                        </a>
+                    </div>
+
+                    <!-- X -->
+                    <div class="social-item">
+                        <a href="https://x.com/macaudada" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/x.png" alt="X">
+                        </a>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+
+                    <!-- TikTok -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/tiktok.png" alt="TikTok">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 14px;">
+            <p>© 2025 543627 版權所有分享澳門桑拿、澳門spa、澳门水療</p>
+            <p style="font-size: 12px; opacity: 0.6;">壹號桑拿，豪門桑拿，尊貴水療，帝湖水療，極品桑拿，東方皇堡，十八桑拿，澳門晉會桑拿</p>
+        </div>
+    </footer>
     
+    <div class="fab-reservation">
+        <button class="cta-button btn-pulse reservation-button">立即預約</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
         mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+
+        // Reservation Button Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const reservationButton = document.querySelector('.reservation-button');
+            if (reservationButton) {
+                reservationButton.addEventListener('click', function() {
+                    const contactSection = document.querySelector('.footer');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Copy Functions
+        function copyWechatId() {
+            navigator.clipboard.writeText('macaudada').then(() => alert('WeChat ID 已複製'));
+        }
+        function copyWhatsAppId() {
+            navigator.clipboard.writeText('59742108').then(() => alert('WhatsApp ID 已複製'));
+        }
+
+        function toggleSocialInfo(element) {
+            const socialItem = element.closest('.social-item');
+            const info = socialItem.querySelector('.social-info');
+            
+            // Close other open infos
+            document.querySelectorAll('.social-info.visible').forEach(el => {
+                if (el !== info) el.classList.remove('visible');
+            });
+
+            if (info) {
+                info.classList.toggle('visible');
+            }
+        }
     </script>
-
-    <div class="mermaid">
-        graph TD
-            A[預約] --> B(安排車輛迎接客人);
-            B --> C{送至服務場所};
-            C --> D[進行消費活動];
-            D --> E[結算];
-            E --> F[享受800元優惠];
-            F --> G{聯繫客服};
-            G --> H[接回並送至酒店];
-    </div>
-
-    <a href="index.html" class="back-link">返回首頁</a>
-
 </body>
 </html>

@@ -2,227 +2,305 @@
 <html lang="zh">
 <head>
     <!-- Google tag (gtag.js) --> 
- <script async src=" https://www.googletagmanager.com/gtag/js?id=AW-17040215810 "></script> 
- <script> 
-   window.dataLayer = window.dataLayer || []; 
-   function gtag(){dataLayer.push(arguments);} 
-   gtag('js', new Date()); 
-  
-   gtag('config', 'AW-17040215810'); 
- </script>
+    <script async src=" https://www.googletagmanager.com/gtag/js?id=AW-17040215810 "></script> 
+    <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+     
+      gtag('config', 'AW-17040215810'); 
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳門資訊 - 澳門桑拿</title>
+    <title>澳門資訊 - 澳門桑拿官方優惠網</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        .back-home {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background: linear-gradient(145deg, #d5bd7a, #c8ae67);
-            color: #050505;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        .back-home:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(213, 189, 122, 0.3);
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background-color: #050505;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzA1MDUwNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNCIgcj0iMC40IiBmaWxsPSIjZDViZDdhIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjE3IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMzAiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNDIiIGN5PSI5IiByPSIwLjQiIGZpbGw9IiNkNWJkN2EiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3IiBjeT0iNDIiIHI9IjAuNCIgZmlsbD0iI2Q1YmQ3YSIgb3BhY2l0eT0iMC4yIj48L2NpcmNsZT4KPC9zdmc+');
-            font-family: 'Noto Serif TC', 'Microsoft YaHei', '微软雅黑', serif;
-            color: #f0f0f0;
-            background-attachment: fixed;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .header {
-            text-align: center;
-            padding: 50px 0;
-            position: relative;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            color: #d5bd7a;
-            font-weight: bold;
-            font-family: 'Playfair Display', 'Noto Serif TC', serif;
-            letter-spacing: 5px;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-            background: linear-gradient(to bottom, #e6d294, #c8ae67);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .info-card {
-            background: linear-gradient(145deg, rgba(25, 25, 25, 0.9), rgba(15, 15, 15, 0.8));
-            padding: 30px;
-            border: 1px solid rgba(213, 189, 122, 0.3);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(213, 189, 122, 0.5);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        .info-category {
-            color: #d5bd7a;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .info-title {
-            color: #d5bd7a;
-            font-size: 1.5em;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-        .info-content {
-            color: #c0c0c0;
-            line-height: 1.8;
-            margin-top: 15px;
-        }
-        .info-details {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(213, 189, 122, 0.2);
-        }
+        /* Specific styles for info page details to match design system */
         .info-detail-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            color: #b0b0b0;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        .info-detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         .info-detail-label {
-            color: #d5bd7a;
+            color: var(--primary);
+            font-weight: 500;
+            flex: 1;
         }
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .info-card {
-                padding: 20px;
-            }
+        .info-detail-value {
+            color: var(--text-secondary);
+            flex: 2;
+            text-align: right;
+        }
+        .card-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-home">返回首頁</a>
-    <div class="container">
-        <header class="header">
-            <h1>澳門資訊</h1>
-        </header>
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/macau-sauna.jpg" alt="Macau Sauna Logo" class="logo">
+            <span>澳門桑拿官方優惠網</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首頁</a>
+            <a href="service_flow.html" class="nav-link">服務流程</a>
+            <a href="macau-sauna-detail.html" class="nav-link">桑拿收費</a>
+            <a href="info.html" class="nav-link" style="color: var(--primary);">澳門資訊</a>
+            <a href="BaccaratGame/index.html" class="nav-link">模擬百家樂</a>
+        </div>
+        <div class="nav-links">
+            <a href="info.html" class="nav-link">中文</a>
+            <span style="color: var(--border-light);">|</span>
+            <a href="info_en.html" class="nav-link">ENG</a>
+        </div>
+    </header>
 
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-category">水路交通資訊</div>
-                <h2 class="info-title">澳門到香港船期表</h2>
-                <div class="info-content">
-                     澳門(外港/氹仔) 到 香港(上環)
+    <section class="hero-section" style="min-height: auto; height: auto; padding-top: 150px; padding-bottom: 20px;">
+        <div class="hero-glow"></div>
+        <h1 class="hero-title">澳門<span class="highlight-text">實用資訊</span></h1>
+        <p class="hero-subtitle">交通、關口、入境政策及娛樂指南</p>
+    </section>
 
-                </div>
-                <div class="info-details">
+    <div class="container" style="margin-top: 0; position: relative; z-index: 10; margin-bottom: 80px;">
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+            
+            <!-- Water Transport Card -->
+            <div class="feature-card" style="text-align: left; align-items: flex-start;">
+                <span class="card-category">水路交通資訊</span>
+                <div class="feature-icon" style="margin-bottom: 15px;">🚢</div>
+                <h3 class="feature-title" style="margin-bottom: 20px;">澳門到香港船期表</h3>
+                <div class="info-details" style="width: 100%;">
                     <div class="info-detail-item">
-                        <span class="info-detail-label">澳門至香港船班</span>
-                        <span>首班07:30 末班23:59 (每30分鐘一班)</span>
+                        <span class="info-detail-label">澳門至香港</span>
+                        <span class="info-detail-value">首班07:30 末班23:59<br>(每30分鐘一班)</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">氹仔至香港船班</span>
-                        <span>首班09:00 末班23:59 (每30分鐘一班)</span>
+                        <span class="info-detail-label">氹仔至香港</span>
+                        <span class="info-detail-value">首班09:00 末班23:59<br>(每30分鐘一班)</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">澳門內港碼頭至珠海灣仔口岸</span>
-                        <span>首班07:00至末班22:00(每15分鐘一班)</span>
+                        <span class="info-detail-label">內港至灣仔</span>
+                        <span class="info-detail-value">首班07:00 末班22:00<br>(每15分鐘一班)</span>
                     </div>
                 </div>
             </div>
 
-            <div class="info-card">
-                <div class="info-category">關口資訊</div>
-                <h2 class="info-title">澳門關口出入時間</h2>
-                <div class="info-content">
-                    掌握澳門各關口的出入時間，方便您安排行程。
-                </div>
-                <div class="info-details">
+            <!-- Border Info Card -->
+            <div class="feature-card" style="text-align: left; align-items: flex-start;">
+                <span class="card-category">關口資訊</span>
+                <img src="images/time.svg" alt="Time" style="width: 48px; height: 48px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));">
+                <h3 class="feature-title" style="margin-bottom: 20px;">澳門關口出入時間</h3>
+                <div class="info-details" style="width: 100%;">
                     <div class="info-detail-item">
-                        <span class="info-detail-label">關閘出入境(拱北)</span>
-                        <span>早上6:00~次日1:00</span>
+                        <span class="info-detail-label">關閘(拱北)</span>
+                        <span class="info-detail-value">06:00 ~ 次日01:00</span>
                     </div>
                     <div class="info-detail-item">
                         <span class="info-detail-label">青茂口岸</span>
-                        <span>24小時通關(護照不能通關)</span>
+                        <span class="info-detail-value">24小時通關<br>(護照不能通關)</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">橫琴澳方口岸</span>
-                        <span>24小時通關</span>
+                        <span class="info-detail-label">橫琴口岸</span>
+                        <span class="info-detail-value">24小時通關</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">港珠澳大橋澳門邊檢大樓</span>
-                        <span>珠澳旅檢大廳：08:00 – 22:00<br>
-                            港澳旅檢大廳：24小時</span>
+                        <span class="info-detail-label">港珠澳大橋</span>
+                        <span class="info-detail-value">珠澳: 08:00-22:00<br>港澳: 24小時</span>
                     </div>
                 </div>
             </div>
 
-            <div class="info-card">
-                <div class="info-category">關口入境</div>
-                <h2 class="info-title">入境澳門天數</h2>
-                <div class="info-content">
-                    港澳通行證,中國護照過境澳門(入境小票不要掉!用於証明可逗留日期)
-                </div>
-                <div class="info-details">
+            <!-- Entry Policy Card -->
+            <div class="feature-card" style="text-align: left; align-items: flex-start;">
+                <span class="card-category">關口入境</span>
+                <img src="images/calendar.svg" alt="Calendar" style="width: 48px; height: 48px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));">
+                <h3 class="feature-title" style="margin-bottom: 20px;">入境澳門天數</h3>
+                <div class="info-details" style="width: 100%;">
                     <div class="info-detail-item">
                         <span class="info-detail-label">中國護照</span>
-                        <span>首次入境時7天許可；若沒澳門機場前往其他國家，<br>離境30天內第二次入境時，給予2天之逗留許可</span>
+                        <span class="info-detail-value">首次入境7天<br>30天內二次入境2天</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">港澳通行證入澳</span>
-                        <span>港澳通行證入澳給予7天逗留許可</span>
+                        <span class="info-detail-label">港澳通行證</span>
+                        <span class="info-detail-value">給予7天逗留許可</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">注意事項</span>
+                        <span class="info-detail-value">請保留入境小票<br>用於證明逗留日期</span>
                     </div>
                 </div>
             </div>
 
-            <div class="info-card">
-                <div class="info-category">娛樂資訊</div>
-                <h2 class="info-title">澳門休閒娛樂推薦</h2>
-                <div class="info-content">
-                    為您推薦澳門各類休閒娛樂場所，包括特色按摩、水療等項目。
-                </div>
-                <div class="info-details">
+            <!-- Entertainment Card -->
+            <div class="feature-card" style="text-align: left; align-items: flex-start;">
+                <span class="card-category">娛樂資訊</span>
+                <div class="feature-icon" style="margin-bottom: 15px;">🎉</div>
+                <h3 class="feature-title" style="margin-bottom: 20px;">澳門休閒娛樂推薦</h3>
+                <div class="info-details" style="width: 100%;">
                     <div class="info-detail-item">
-                        <span class="info-detail-label">開放時間</span>
-                        <span>下午15:00~次日5:00</span>
+                        <span class="info-detail-label">推薦項目</span>
+                        <span class="info-detail-value">特色按摩、水療SPA</span>
                     </div>
                     <div class="info-detail-item">
-                        <span class="info-detail-label">諮詢wechat,line,whatsapp,Telepram</span>
-                        <span>+852-59742108</span>
+                        <span class="info-detail-label">開放時間</span>
+                        <span class="info-detail-value">15:00 ~ 次日05:00</span>
+                    </div>
+                    <div class="info-detail-item">
+                        <span class="info-detail-label">諮詢預約</span>
+                        <span class="info-detail-value">+852-59742108</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>快速連結</h3>
+                <div class="footer-links">
+                    <a href="macau-sauna-experience.html">澳門夜生活攻略</a>
+                    <a href="macau-sauna-detail.html">桑拿服務詳情</a>
+                    <a href="info.html">澳門資訊</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>營業時間</h3>
+                <p style="color: var(--text-secondary);">每日: 下午15:00 ~ 次日5:00</p>
+            </div>
+            <div class="footer-col">
+                <h3>聯絡我們</h3>
+                <div class="social-bar social-grid">
+                    <!-- WeChat -->
+                    <div class="social-item">
+                        <div class="social-icon-wrapper" onclick="toggleSocialInfo(this)" title="WeChat: macaudada">
+                            <img src="images/通信軟件/wechat.png" alt="WeChat">
+                        </div>
+                        <div class="social-info">
+                            <span class="id-text">macaudada</span>
+                            <button class="copy-btn" onclick="copyWechatId()">複製</button>
+                        </div>
+                    </div>
+                    
+                    <!-- LINE -->
+                    <div class="social-item">
+                        <a href="https://line.me/ti/p/MSTBNXksRu" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/LINE.png" alt="LINE">
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="social-item">
+                        <div class="social-icon-wrapper" onclick="toggleSocialInfo(this)" title="WhatsApp: +852-59742108">
+                            <img src="images/通信軟件/whatsapp.png" alt="WhatsApp">
+                        </div>
+                        <div class="social-info">
+                            <span class="id-text">+852-59742108</span>
+                            <button class="copy-btn" onclick="copyWhatsAppId()">複製</button>
+                        </div>
+                    </div>
+
+                    <!-- Telegram -->
+                    <div class="social-item">
+                        <a href="https://t.me/macaudada" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/Telegram.png" alt="Telegram">
+                        </a>
+                    </div>
+
+                    <!-- X -->
+                    <div class="social-item">
+                        <a href="https://x.com/macaudada" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/x.png" alt="X">
+                        </a>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+
+                    <!-- TikTok -->
+                    <div class="social-item">
+                        <a href="#" target="_blank" class="social-icon-wrapper">
+                            <img src="images/通信軟件/tiktok.png" alt="TikTok">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 14px;">
+            <p>© 2025 543627 版權所有分享澳門桑拿、澳門spa、澳门水療</p>
+            <p style="font-size: 12px; opacity: 0.6;">壹號桑拿，豪門桑拿，尊貴水療，帝湖水療，極品桑拿，東方皇堡，十八桑拿，澳門晉會桑拿</p>
+        </div>
+    </footer>
+    
+    <div class="fab-reservation">
+        <button class="cta-button btn-pulse reservation-button">立即預約</button>
     </div>
+
+    <script>
+        // Reservation Button Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const reservationButton = document.querySelector('.reservation-button');
+            if (reservationButton) {
+                reservationButton.addEventListener('click', function() {
+                    const contactSection = document.querySelector('.footer');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Copy Functions
+        function copyWechatId() {
+            navigator.clipboard.writeText('macaudada').then(() => alert('WeChat ID 已複製'));
+        }
+        function copyWhatsAppId() {
+            navigator.clipboard.writeText('59742108').then(() => alert('WhatsApp ID 已複製'));
+        }
+
+        function toggleSocialInfo(element) {
+            const socialItem = element.closest('.social-item');
+            const info = socialItem.querySelector('.social-info');
+            
+            // Close other open infos
+            document.querySelectorAll('.social-info.visible').forEach(el => {
+                if (el !== info) el.classList.remove('visible');
+            });
+
+            if (info) {
+                info.classList.toggle('visible');
+            }
+        }
+    </script>
 </body>
 </html>
