@@ -118,24 +118,25 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">Service Fees</h2>
-        <div class="region-tabs">
-            <button class="region-tab active" onclick="switchRegion('macau', this)">Macau Island (Old)</button>
-            <button class="region-tab" onclick="switchRegion('taipa', this)">Taipa Island (New)</button>
-        </div>
         <div class="venue-carousel">
-            <div class="venue-track">
-                <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">Club 9</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">The One</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">East Castle</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">Supreme</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">Noble</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">Haomen</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">Triumph</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">Royal</button>
-                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('jl')" style="display:none">Shangpin</button>
-                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('dh_lake')" style="display:none">Dihu</button>
+            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
+            <div class="venue-mask">
+                <div class="venue-track">
+                    <button class="venue-btn active" onclick="updatePriceTable('dd')">Club 9</button>
+                    <button class="venue-btn" onclick="updatePriceTable('jl')">Shangpin</button>
+                    <button class="venue-btn" onclick="updatePriceTable('yh')">The One</button>
+                    <button class="venue-btn" onclick="updatePriceTable('hb')">East Castle</button>
+                    <button class="venue-btn" onclick="updatePriceTable('jp')">Supreme</button>
+                    <button class="venue-btn" onclick="updatePriceTable('zg')">Noble</button>
+                    <button class="venue-btn" onclick="updatePriceTable('hm')">Haomen</button>
+                    <button class="venue-btn" onclick="updatePriceTable('kx')">Triumph</button>
+                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB</button>
+                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">Dihu</button>
+                    <button class="venue-btn" onclick="updatePriceTable('yu')">Royal</button>
+                </div>
             </div>
+            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
+            <div class="carousel-dots"></div>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -485,26 +486,6 @@
             ]
         };
 
-        function switchRegion(region, tab) {
-            document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            document.querySelectorAll('.venue-btn').forEach(btn => {
-                if (btn.getAttribute('data-region') === region) {
-                    btn.style.display = 'flex';
-                } else {
-                    btn.style.display = 'none';
-                }
-            });
-
-            const visibleBtns = document.querySelectorAll(`.venue-btn[data-region="${region}"]`);
-            if (visibleBtns.length > 0) {
-                visibleBtns[0].classList.add('active');
-                const firstVenue = visibleBtns[0].getAttribute('onclick').match(/'([^']+)'/)[1];
-                updatePriceTable(firstVenue);
-            }
-        }
-
         function updatePriceTable(venue) {
             document.querySelectorAll('.venue-btn').forEach(btn => btn.classList.remove('active'));
             const buttons = document.querySelectorAll('.venue-btn');
@@ -532,7 +513,7 @@
 
         // Initialize with default view
         document.addEventListener('DOMContentLoaded', () => {
-            updatePriceTable('dd');
+            // Logic handled in carousel.js
         });
     </script>
     <script src="js/carousel.js"></script>

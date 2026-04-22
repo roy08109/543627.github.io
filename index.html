@@ -119,24 +119,25 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">服务收费</h2>
-        <div class="region-tabs">
-            <button class="region-tab active" onclick="switchRegion('macau', this)">澳門島（老區）</button>
-            <button class="region-tab" onclick="switchRegion('taipa', this)">氹仔島（新區）</button>
-        </div>
         <div class="venue-carousel">
-            <div class="venue-track">
-                <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">玖號桑拿</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">壹號桑拿</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">東方皇堡</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">極品桑拿</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">尊貴水療</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">豪門桑拿</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">凱旋桑拿</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB晉會</button>
-                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">御桑拿</button>
-                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('jl')" style="display:none">尚品</button>
-                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('dh_lake')" style="display:none">帝湖桑拿</button>
+            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
+            <div class="venue-mask">
+                <div class="venue-track">
+                    <button class="venue-btn active" onclick="updatePriceTable('dd')">玖號桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('jl')">尚品</button>
+                    <button class="venue-btn" onclick="updatePriceTable('yh')">壹號桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('hb')">東方皇堡</button>
+                    <button class="venue-btn" onclick="updatePriceTable('jp')">極品桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('zg')">尊貴水療</button>
+                    <button class="venue-btn" onclick="updatePriceTable('hm')">豪門桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('kx')">凱旋桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB晉會</button>
+                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">帝湖桑拿</button>
+                    <button class="venue-btn" onclick="updatePriceTable('yu')">御桑拿</button>
+                </div>
             </div>
+            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
+            <div class="carousel-dots"></div>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -486,26 +487,6 @@
             ]
         };
 
-        function switchRegion(region, tab) {
-            document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            document.querySelectorAll('.venue-btn').forEach(btn => {
-                if (btn.getAttribute('data-region') === region) {
-                    btn.style.display = 'flex';
-                } else {
-                    btn.style.display = 'none';
-                }
-            });
-
-            const visibleBtns = document.querySelectorAll(`.venue-btn[data-region="${region}"]`);
-            if (visibleBtns.length > 0) {
-                visibleBtns[0].classList.add('active');
-                const firstVenue = visibleBtns[0].getAttribute('onclick').match(/'([^']+)'/)[1];
-                updatePriceTable(firstVenue);
-            }
-        }
-
         function updatePriceTable(venue) {
             document.querySelectorAll('.venue-btn').forEach(btn => btn.classList.remove('active'));
             const buttons = document.querySelectorAll('.venue-btn');
@@ -533,7 +514,7 @@
 
         // Initialize with default view
         document.addEventListener('DOMContentLoaded', () => {
-            updatePriceTable('dd');
+            // Logic handled in carousel.js
         });
     </script>
     <script src="js/carousel.js"></script>
