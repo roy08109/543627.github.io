@@ -119,25 +119,24 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">服务收费</h2>
+        <div class="region-tabs">
+            <button class="region-tab active" onclick="switchRegion('macau', this)">澳門島（老區）</button>
+            <button class="region-tab" onclick="switchRegion('taipa', this)">氹仔島（新區）</button>
+        </div>
         <div class="venue-carousel">
-            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
-            <div class="venue-mask">
-                <div class="venue-track">
-                    <button class="venue-btn active" onclick="updatePriceTable('dd')">帝道桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jl')">18桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yh')">壹號桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hb')">東方皇堡</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jp')">極品桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('zg')">尊貴水療</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hm')">豪門桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('kx')">凱旋桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB晉會</button>
-                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">帝湖桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yu')">御桑拿</button>
-                </div>
+            <div class="venue-track">
+                <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">玖號桑拿</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">壹號桑拿</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">東方皇堡</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">極品桑拿</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">尊貴水療</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">豪門桑拿</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">凱旋桑拿</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB晉會</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">御桑拿</button>
+                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('jl')" style="display:none">尚品</button>
+                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('dh_lake')" style="display:none">帝湖桑拿</button>
             </div>
-            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
-            <div class="carousel-dots"></div>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -346,121 +345,120 @@
 
         // Price Table Logic
         const prices = {
-            'dd': [ // 帝道
-                { name: '淨桑拿', price: '$1,888' },
-                { name: '上海式', price: '$2,288' },
-                { name: '南亞式', price: '$3,288' },
-                { name: '南亞式模特', price: '$3,688' },
-                { name: '貴人式', price: '$3,888' },
-                { name: '昭儀式', price: '$4,188' },
-                { name: '貴妃式', price: '$4,788' },
-                { name: '歐式', price: '$4,388' },
-                { name: '日式', price: '$5,488' },
-                { name: '韓式', price: '$5,988' },
-                { name: 'AV 式', price: '$7,288' },
-                { name: '韓國環球式', price: '$7,288' }
+            'dd': [ // 玖號
+                { name: '淨桑拿 (15 小時)', price: '$1,788' },
+                { name: '上海式按摩 (90 分鐘)', price: '$2,288' },
+                { name: '南亞・異域按摩 (60 分鐘)', price: '$3,188' },
+                { name: '南亞・臻選按摩 (60 分鐘)', price: '$3,688' },
+                { name: '國色・美人按摩 (60 分鐘)', price: '$3,888' },
+                { name: '國色・佳人按摩 (60 分鐘)', price: '$4,188' },
+                { name: '國色・麗人按摩 (60 分鐘)', price: '$4,788' },
+                { name: '歐陸・麗人按摩 (60 分鐘)', price: '$4,388' },
+                { name: '★日式・臻選按摩 (60 分鐘)', price: '$4,999' },
+                { name: '日式・極上按摩 (60 分鐘)', price: '$6,488' },
+                { name: '日式・明星按摩 (60 分鐘)', price: '$6,988' },
+                { name: '韓式・名媛按摩 (60 分鐘)', price: '$5,988' },
+                { name: '韓式・環球按摩 (60 分鐘)', price: '$6,988' },
+                { name: '★巴厘島風情按摩 (60 分鐘)', price: '$3,688' },
+                { name: '★特色泰式抓龍筋按摩 (60 分鐘)', price: '$3,688' }
             ],
-            'jl': [ // 18桑拿
-                { name: '淨水/桑拿', price: '$1,780' },
-                { name: '上海式', price: '$2,280' },
-                { name: '越式 (160-199)', price: '$3,330' },
-                { name: 'SPA (100-159)', price: '$3,530' },
-                { name: '越式高級 (650-699)', price: '$3,730' },
-                { name: 'SPA高級 (600-649)', price: '$3,930' },
-                { name: '歐式/明星 (800-999)', price: '$4,330' },
-                { name: '外明 (330-359)', price: '$4,630' },
-                { name: '寶島 (2XX)', price: '$4,650' },
-                { name: '超模/外超模 (7XX)', price: '$4,950' },
-                { name: '日本/韓國 (3XX)', price: '$5,550' }
+            'jl': [ // 尚品
+                { name: '桑拿浴 (15 小時)', price: '$1,988' },
+                { name: '按摩 SPA (90 分鐘)', price: '$2,299' },
+                { name: '東南亞 SPA (5) (60 分鐘)', price: '$3,799' },
+                { name: '東南亞超模 SPA (7) (60 分鐘)', price: '$4,299' },
+                { name: '名模 SPA (1) (60 分鐘)', price: '$4,499' },
+                { name: '超模 SPA (2) (60 分鐘)', price: '$4,999' },
+                { name: '網紅 SPA (3) (60 分鐘)', price: '$5,599' },
+                { name: '歐式 SPA (6) (60 分鐘)', price: '$4,999' },
+                { name: '日韓式 SPA (8) (60 分鐘)', price: '$6,199' },
+                { name: '日韓式超模 SPA (9) (60 分鐘)', price: '$6,599' }
             ],
             'yh': [ // 壹號
-                { name: '7XX 越泰', price: '$3,088' },
-                { name: '8XX 蒙泰越', price: '$3,488' },
-                { name: '1XXX 台式', price: '$3,688' },
-                { name: '2XXX 台模', price: '$3,988' },
-                { name: '3XXX 台超', price: '$4,588' },
-                { name: '6XXX 歐', price: '$4,188' },
-                { name: '8XXX 日', price: '$5,288' },
-                { name: '9XXX 韓', price: '$5,788' },
-                { name: '6XX 日韓 AV', price: '$7,088' },
-                { name: '6XX 韓國環球', price: '$7,488' }
+                { name: '桑拿浴 (門票)', price: '$1,799' },
+                { name: '上海式按摩（60 分鐘）', price: '$2,199' },
+                { name: '南亞風情按摩（60 分鐘）', price: '$3,199' },
+                { name: '異國風情按摩（60 分鐘）', price: '$3,699' },
+                { name: '台式按摩（60 分鐘）', price: '$3,899' },
+                { name: '台式模特按摩（60 分鐘）', price: '$4,199' },
+                { name: '台式超模按摩（60 分鐘）', price: '$4,799' },
+                { name: '歐式按摩（60 分鐘）', price: '$4,399' },
+                { name: '日韓模特按摩（60 分鐘）', price: '$5,499' },
+                { name: '日韓車模按摩（60 分鐘）', price: '$5,999' },
+                { name: 'AV 按摩（60 分鐘）', price: '$7,199' },
+                { name: '韓國環球按摩（60 分鐘）', price: '$7,599' }
             ],
             'hb': [ // 東方皇堡
-                { name: '12小時入場費', price: '$1,568' },
-                { name: '美容香薰 Spa80min', price: '$2,199' },
-                { name: '自選主題 Spa', price: '$2,998' },
-                { name: '特選主題 Spa', price: '$3,398' },
-                { name: '貴族主題 Spa', price: '$3,798' },
-                { name: '歐式主題 Spa', price: '$4,198' },
-                { name: '尊貴主題 Spa', price: '$4,298' },
-                { name: '環亞主題 Spa', price: '$4,698' },
-                { name: '日本主題 Spa', price: '$5,764' }
+                { name: '12小時入場費', price: '$1,738' },
+                { name: '美容香薰 Spa80min', price: '$2,398' },
+                { name: '自選主題 Spa', price: '$3,198' },
+                { name: '特選主題 Spa', price: '$3,598' },
+                { name: '貴族主題 Spa', price: '$3,998' },
+                { name: '歐式主題 Spa', price: '$4,398' },
+                { name: '尊貴主題 Spa', price: '$4,498' },
+                { name: '環亞主題 Spa', price: '$4,998' },
+                { name: '網紅主題 Spa', price: '$5,498' },
+                { name: '日本主題 Spa', price: '$5,998' }
             ],
             'jp': [ // 極品
                 { name: '水療 SPA (淨桑拿)', price: '$1,988' },
-                { name: '極品休閒 SPA', price: '$2,388' },
-                { name: '極品東南亞 LADY SPA', price: '$3,288' },
-                { name: '極品東南亞模特 SPA', price: '$3,838' },
-                { name: '極品東南亞明星 SPA', price: '$4,188' },
-                { name: '極品超模 LADY SPA', price: '$3,838' },
-                { name: '極品星模 LADY SPA', price: '$4,538' },
-                { name: '極品環球 LADY SPA', price: '$5,238' },
-                { name: '極品俄式 LADY SPA', price: '$4,838' },
-                { name: '極品日式 LADY SPA', price: '$6,038' },
-                { name: '極品韓式 LADY SPA', price: '$6,038' },
-                { name: '極品坡妹 LADY SPA', price: '$6,038' },
-                { name: '極品日星 LADY SPA', price: '$6,438' },
-                { name: '極品韓星 LADY SPA', price: '$6,438' }
+                { name: '極品休閒 SPA（90 分鐘）', price: '$2,488' },
+                { name: '極品東南亞 LADY SPA（60 分鐘）', price: '$3,388' },
+                { name: '極品東南亞模特 LADY SPA（60 分鐘）', price: '$4,088' },
+                { name: '極品東南亞明星 LADY SPA（60 分鐘）', price: '$4,488' },
+                { name: '極品超模 LADY SPA（60 分鐘）', price: '$4,088' },
+                { name: '極品星模 LADY SPA（60 分鐘）', price: '$4,788' },
+                { name: '極品環球 LADY SPA（60 分鐘）', price: '$5,588' },
+                { name: '極品俄式 LADY SPA（60 分鐘）', price: '$4,988' },
+                { name: '極品日式 LADY SPA（60 分鐘）', price: '$6,388' },
+                { name: '極品韓式 LADY SPA（60 分鐘）', price: '$6,388' }
             ],
             'zg': [ // 尊貴
-                { name: '黑絲啫哩禮包', price: '$238' },
-                { name: '特價雙飛 (9)', price: '$988' },
-                { name: '桑拿浴', price: '$1,999' },
-                { name: '網紅才藝 (6)', price: '$4,599' },
-                { name: '保健按摩', price: '$2,399' },
-                { name: '環球才藝 (3)', price: '$4,999' },
-                { name: '東模按摩 (9)', price: '$3,299' },
-                { name: '星級車模 (8)', price: '$5,399' },
-                { name: '模特按摩 (0)', price: '$4,299' },
-                { name: '日韓模特 (1)', price: '$6,299' },
-                { name: '歐美按摩 (2)', price: '$4,899' },
-                { name: '香港台灣 (1)', price: '$6,299' }
+                { name: '桑拿浴', price: '$1,899' },
+                { name: '保健按摩', price: '$2,699' },
+                { name: '東模按摩 (9)', price: '$3,799' },
+                { name: '模特按摩 (0)', price: '$4,799' },
+                { name: '歐美按摩 (2)', price: '$5,099' },
+                { name: '網紅才藝 (6)', price: '$4,999' },
+                { name: '環球才藝 (3)', price: '$5,599' },
+                { name: '星級車模 (8)', price: '$6,099' },
+                { name: '日韓模特 (1)', price: '$6,599' },
+                { name: '香港台灣 (7)', price: '$6,599' }
             ],
             'hm': [ // 豪門
-                { name: '星際日韓式按摩', price: '$6,588' },
-                { name: '日韓式按摩', price: '$5,988' },
-                { name: '超豪華按摩', price: '$5,288' },
-                { name: '歐式按摩', price: '$4,988' },
-                { name: '星級超式按摩', price: '$4,388' },
-                { name: '星級式按摩', price: '$3,988' },
-                { name: '星級越南式按摩', price: '$3,988' },
-                { name: '亞裔式按摩', price: '$3,988' },
-                { name: '越式按摩', price: '$2,988' },
-                { name: '上海式按摩', price: '$2,188' },
-                { name: '健康芬蘭浴', price: '$1,788' }
+                { name: '星級日韓式按摩（60 分鐘）', price: '$7,188' },
+                { name: '日韓式按摩（60 分鐘）', price: '$6,388' },
+                { name: '超星式按摩（60 分鐘）', price: '$5,588' },
+                { name: '歐式按摩（60 分鐘）', price: '$5,088' },
+                { name: '星級式按摩（60 分鐘）', price: '$4,888' },
+                { name: '星級越式按摩（60 分鐘）', price: '$4,488' },
+                { name: '亞裔式按摩（60 分鐘）', price: '$4,388' },
+                { name: '越式按摩（60 分鐘）', price: '$3,688' },
+                { name: '上海式按摩（90 分鐘）', price: '$2,588' },
+                { name: '健康芬蘭浴 / 門票（12 小時）', price: '$1,988' }
             ],
             'kx': [ // 凱旋
-                { name: '淨桑', price: '$1,888' },
-                { name: '上海式', price: '$2,298' },
-                { name: '東模 (2XX)', price: '$2,998' },
-                { name: '東超模 (3XX)', price: '$3,698' },
-                { name: '超模 (5/6XX)', price: '$3,698' },
-                { name: '才藝 (8XX)', price: '$4,398' },
-                { name: '亞洲 (10XX)', price: '$4,998' },
-                { name: '歐美模特 (9XX)', price: '$4,298' },
-                { name: '韓國模特 (7XX)', price: '$5,598' },
-                { name: '日本模特 (7XX)', price: '$5,798' }
+                { name: '南亞風情 (2XX)', price: '$3,298' },
+                { name: '南亞模特 (3XX)', price: '$3,998' },
+                { name: '凱旋 (6XX)', price: '$3,998' },
+                { name: '麗人 (8XX)', price: '$4,798' },
+                { name: '蘿莉 (80XX)', price: '$4,998' },
+                { name: '亞洲 (10XX)', price: '$5,298' },
+                { name: '歐美 (9XX)', price: '$4,698' },
+                { name: '韓式 (7XX)', price: '$5,998' },
+                { name: '日式 (7XX)', price: '$5,998' }
             ],
             'mc': [ // MCLUB
-                { name: '12小時入場費', price: '$1,568' },
-                { name: '美容香薰 Spa80min', price: '$2,199' },
-                { name: '自選主題 Spa', price: '$2,998' },
-                { name: '特選主題 Spa', price: '$3,398' },
-                { name: '貴族主題 Spa', price: '$3,798' },
-                { name: '歐式主題 Spa', price: '$4,198' },
-                { name: '尊貴主題 Spa', price: '$4,298' },
-                { name: '環亞主題 Spa', price: '$4,698' },
-                { name: '日本主題 Spa', price: '$5,764' }
+                { name: '12小時入場費', price: '$1,738' },
+                { name: '美容香薰 Spa (80min)', price: '$2,398' },
+                { name: '恆星 Spa (50min)', price: '$3,398' },
+                { name: '土星 Spa (50min)', price: '$3,898' },
+                { name: '火星 Spa (50min)', price: '$4,298' },
+                { name: '水星 Spa (50min)', price: '$4,798' },
+                { name: '木星 Spa (50min)', price: '$5,298' },
+                { name: '網紅 Spa (50min)', price: '$5,798' },
+                { name: '歐式 Spa (50min)', price: '$4,548' },
+                { name: '日/韓星級 Spa (50min)', price: '$6,198' }
             ],
             'dh_lake': [ // 帝湖
                 { name: '淨桑拿', price: '$1,888' },
@@ -487,6 +485,26 @@
                 { name: '歐式混合', price: '$5,588' }
             ]
         };
+
+        function switchRegion(region, tab) {
+            document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            document.querySelectorAll('.venue-btn').forEach(btn => {
+                if (btn.getAttribute('data-region') === region) {
+                    btn.style.display = 'flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+
+            const visibleBtns = document.querySelectorAll(`.venue-btn[data-region="${region}"]`);
+            if (visibleBtns.length > 0) {
+                visibleBtns[0].classList.add('active');
+                const firstVenue = visibleBtns[0].getAttribute('onclick').match(/'([^']+)'/)[1];
+                updatePriceTable(firstVenue);
+            }
+        }
 
         function updatePriceTable(venue) {
             document.querySelectorAll('.venue-btn').forEach(btn => btn.classList.remove('active'));
@@ -515,7 +533,7 @@
 
         // Initialize with default view
         document.addEventListener('DOMContentLoaded', () => {
-            // Logic handled in carousel.js
+            updatePriceTable('dd');
         });
     </script>
     <script src="js/carousel.js"></script>

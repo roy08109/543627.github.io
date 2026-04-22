@@ -118,25 +118,24 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">Service Fees</h2>
+        <div class="region-tabs">
+            <button class="region-tab active" onclick="switchRegion('macau', this)">Macau Island (Old)</button>
+            <button class="region-tab" onclick="switchRegion('taipa', this)">Taipa Island (New)</button>
+        </div>
         <div class="venue-carousel">
-            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
-            <div class="venue-mask">
-                <div class="venue-track">
-                    <button class="venue-btn active" onclick="updatePriceTable('dd')">Di Dao</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jl')">18 Sauna</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yh')">The One</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hb')">East Castle</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jp')">Supreme</button>
-                    <button class="venue-btn" onclick="updatePriceTable('zg')">Noble</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hm')">Haomen</button>
-                    <button class="venue-btn" onclick="updatePriceTable('kx')">Triumph</button>
-                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB</button>
-                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">Dihu</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yu')">Royal</button>
-                </div>
+            <div class="venue-track">
+                <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">Club 9</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">The One</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">East Castle</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">Supreme</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">Noble</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">Haomen</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">Triumph</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB</button>
+                <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">Royal</button>
+                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('jl')" style="display:none">Shangpin</button>
+                <button class="venue-btn" data-region="taipa" onclick="updatePriceTable('dh_lake')" style="display:none">Dihu</button>
             </div>
-            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
-            <div class="carousel-dots"></div>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -345,121 +344,120 @@
 
         // Price Table Logic
         const prices = {
-            'dd': [ // Di Dao
-                { name: 'Net Sauna', price: '$1,888' },
-                { name: 'Shanghai Style', price: '$2,288' },
-                { name: 'South Asian Style', price: '$3,288' },
-                { name: 'South Asian Model', price: '$3,688' },
-                { name: 'Noble Style', price: '$3,888' },
-                { name: 'Imperial Style', price: '$4,188' },
-                { name: 'Royal Concubine Style', price: '$4,788' },
-                { name: 'European Style', price: '$4,388' },
-                { name: 'Japanese Style', price: '$5,488' },
-                { name: 'Korean Style', price: '$5,988' },
-                { name: 'AV Style', price: '$7,288' },
-                { name: 'Korean Global Style', price: '$7,288' }
+            'dd': [ // Club 9
+                { name: 'PURE SAUNA (15 Hours)', price: '$1,788' },
+                { name: 'SHANGHAI STYLE MASSAGE (90 MIN)', price: '$2,288' },
+                { name: 'SOUTH ASIAN EXOTIC MASSAGE (60 MIN)', price: '$3,188' },
+                { name: 'SOUTH ASIAN PREMIUM MASSAGE (60 MIN)', price: '$3,688' },
+                { name: 'CHINESE ELITE MASSAGE (60 MIN)', price: '$3,888' },
+                { name: 'CHINESE BRILLIANT MASSAGE (60 MIN)', price: '$4,188' },
+                { name: 'CHINESE CLASSIC MASSAGE (60 MIN)', price: '$4,788' },
+                { name: 'EUROPEAN BEAUTY MASSAGE (60 MIN)', price: '$4,388' },
+                { name: '★JAPANESE PREMIUM MASSAGE (60 MIN)', price: '$4,999' },
+                { name: 'JAPANESE SUPREME MASSAGE (60 MIN)', price: '$6,488' },
+                { name: 'JAPANESE STAR MASSAGE (60 MIN)', price: '$6,988' },
+                { name: 'KOREAN ELITE MASSAGE (60 MIN)', price: '$5,988' },
+                { name: 'KOREAN GLOBAL MASSAGE (60 MIN)', price: '$6,988' },
+                { name: '★BALINESE STYLE MASSAGE (60 MIN)', price: '$3,688' },
+                { name: '★THAI DRAGON MASSAGE (60 MIN)', price: '$3,688' }
             ],
-            'jl': [ // 18 Sauna
-                { name: 'Net Sauna/Water', price: '$1,780' },
-                { name: 'Shanghai Style', price: '$2,280' },
-                { name: 'Vietnamese (160-199)', price: '$3,330' },
-                { name: 'SPA (100-159)', price: '$3,530' },
-                { name: 'Vietnamese Premium (650-699)', price: '$3,730' },
-                { name: 'SPA Premium (600-649)', price: '$3,930' },
-                { name: 'European/Star (800-999)', price: '$4,330' },
-                { name: 'Foreign Star (330-359)', price: '$4,630' },
-                { name: 'Taiwan (2XX)', price: '$4,650' },
-                { name: 'Super Model (7XX)', price: '$4,950' },
-                { name: 'Japan/Korea (3XX)', price: '$5,550' }
+            'jl': [ // Shangpin
+                { name: 'Sauna (15 Hours)', price: '$1,988' },
+                { name: 'Massage SPA (90 MIN)', price: '$2,299' },
+                { name: 'Southeast Asian SPA (5) (60 MIN)', price: '$3,799' },
+                { name: 'Southeast Asian Super SPA (7) (60 MIN)', price: '$4,299' },
+                { name: 'Model SPA (1) (60 MIN)', price: '$4,499' },
+                { name: 'Super Model SPA (2) (60 MIN)', price: '$4,999' },
+                { name: 'Influencer SPA (3) (60 MIN)', price: '$5,599' },
+                { name: 'European SPA (6) (60 MIN)', price: '$4,999' },
+                { name: 'JP/KR SPA (8) (60 MIN)', price: '$6,199' },
+                { name: 'JP/KR Super SPA (9) (60 MIN)', price: '$6,599' }
             ],
             'yh': [ // The One
-                { name: '7XX Viet/Thai', price: '$3,088' },
-                { name: '8XX Mong/Thai/Viet', price: '$3,488' },
-                { name: '1XXX Taiwan Style', price: '$3,688' },
-                { name: '2XXX Taiwan Model', price: '$3,988' },
-                { name: '3XXX Taiwan Super', price: '$4,588' },
-                { name: '6XXX European', price: '$4,188' },
-                { name: '8XXX Japanese', price: '$5,288' },
-                { name: '9XXX Korean', price: '$5,788' },
-                { name: '6XX JP/KR AV', price: '$7,088' },
-                { name: '6XX KR Global', price: '$7,488' }
+                { name: 'Sauna (Admission)', price: '$1,799' },
+                { name: 'Shanghai Massage (60 min)', price: '$2,199' },
+                { name: 'South Asian Massage (60 min)', price: '$3,199' },
+                { name: 'Exotic Massage (60 min)', price: '$3,699' },
+                { name: 'Taiwan Massage (60 min)', price: '$3,899' },
+                { name: 'Taiwan Model Massage (60 min)', price: '$4,199' },
+                { name: 'Taiwan Super Model (60 min)', price: '$4,799' },
+                { name: 'European Massage (60 min)', price: '$4,399' },
+                { name: 'JP/KR Model Massage (60 min)', price: '$5,499' },
+                { name: 'JP/KR Car Model (60 min)', price: '$5,999' },
+                { name: 'AV Massage (60 min)', price: '$7,199' },
+                { name: 'Korea Global (60 min)', price: '$7,599' }
             ],
             'hb': [ // East Castle
-                { name: 'Entrance Fee (12h)', price: '$1,568' },
-                { name: 'Aroma Spa (80min)', price: '$2,199' },
-                { name: 'Free Style Spa', price: '$2,998' },
-                { name: 'Special Theme Spa', price: '$3,398' },
-                { name: 'Noble Theme Spa', price: '$3,798' },
-                { name: 'European Theme Spa', price: '$4,198' },
-                { name: 'Premium Theme Spa', price: '$4,298' },
-                { name: 'Grand Asia Theme Spa', price: '$4,698' },
-                { name: 'Japan Style Theme Spa', price: '$5,764' }
+                { name: 'Entrance Fee (12 hours)', price: '$1,738' },
+                { name: 'Aroma Spa (80min)', price: '$2,398' },
+                { name: 'Free Style Spa', price: '$3,198' },
+                { name: 'Aroma Theme Spa', price: '$3,598' },
+                { name: 'Noble Aroma Theme Spa', price: '$3,998' },
+                { name: 'Europe Aroma Theme Spa', price: '$4,398' },
+                { name: 'Primer Aroma Theme Spa', price: '$4,498' },
+                { name: 'Grand Asia Aroma Theme Spa', price: '$4,998' },
+                { name: 'Kol Aroma Theme Spa', price: '$5,498' },
+                { name: 'Japan Style Aroma Theme Spa', price: '$5,998' }
             ],
             'jp': [ // Supreme
-                { name: 'Water SPA (Net Sauna)', price: '$1,988' },
-                { name: 'Supreme Leisure SPA', price: '$2,388' },
-                { name: 'Supreme SE Asia Lady SPA', price: '$3,288' },
-                { name: 'Supreme SE Asia Model SPA', price: '$3,838' },
-                { name: 'Supreme SE Asia Star SPA', price: '$4,188' },
-                { name: 'Supreme Super Model SPA', price: '$3,838' },
-                { name: 'Supreme Star Model SPA', price: '$4,538' },
-                { name: 'Supreme Global Lady SPA', price: '$5,238' },
-                { name: 'Supreme Russian Lady SPA', price: '$4,838' },
-                { name: 'Supreme Japanese Lady SPA', price: '$6,038' },
-                { name: 'Supreme Korean Lady SPA', price: '$6,038' },
-                { name: 'Supreme Singapore Lady SPA', price: '$6,038' },
-                { name: 'Supreme JP Star Lady SPA', price: '$6,438' },
-                { name: 'Supreme KR Star Lady SPA', price: '$6,438' }
+                { name: 'Sauna (Net Sauna)', price: '$1,988' },
+                { name: 'Supreme Leisure SPA (90 mins)', price: '$2,488' },
+                { name: 'Supreme SE Asia Lady SPA (60 mins)', price: '$3,388' },
+                { name: 'Supreme SE Asia Model Lady SPA (60 mins)', price: '$4,088' },
+                { name: 'Supreme SE Asia Star Lady SPA (60 mins)', price: '$4,488' },
+                { name: 'Supreme Super Model Lady SPA (60 mins)', price: '$4,088' },
+                { name: 'Supreme Star Model Lady SPA (60 mins)', price: '$4,788' },
+                { name: 'Supreme Global Lady SPA (60 mins)', price: '$5,588' },
+                { name: 'Supreme Russian Lady SPA (60 mins)', price: '$4,988' },
+                { name: 'Supreme Japanese Lady SPA (60 mins)', price: '$6,388' },
+                { name: 'Supreme Korean Lady SPA (60 mins)', price: '$6,388' }
             ],
             'zg': [ // Noble
-                { name: 'Black Silk Jelly Pack', price: '$238' },
-                { name: 'Special Double Fly (9)', price: '$988' },
-                { name: 'Sauna Bath', price: '$1,999' },
-                { name: 'Influencer Talent (6)', price: '$4,599' },
-                { name: 'Health Massage', price: '$2,399' },
-                { name: 'Global Talent (3)', price: '$4,999' },
-                { name: 'Eastern Model Massage (9)', price: '$3,299' },
-                { name: 'Star Car Model (8)', price: '$5,399' },
-                { name: 'Model Massage (0)', price: '$4,299' },
-                { name: 'JP/KR Model (1)', price: '$6,299' },
-                { name: 'Euro/US Massage (2)', price: '$4,899' },
-                { name: 'HK/Taiwan (1)', price: '$6,299' }
+                { name: 'Sauna Bath', price: '$1,899' },
+                { name: 'Health Massage', price: '$2,699' },
+                { name: 'Eastern Model Massage (9)', price: '$3,799' },
+                { name: 'Model Massage (0)', price: '$4,799' },
+                { name: 'Euro/US Massage (2)', price: '$5,099' },
+                { name: 'Influencer Talent (6)', price: '$4,999' },
+                { name: 'Global Talent (3)', price: '$5,599' },
+                { name: 'Star Car Model (8)', price: '$6,099' },
+                { name: 'JP/KR Model (1)', price: '$6,599' },
+                { name: 'HK/Taiwan (7)', price: '$6,599' }
             ],
             'hm': [ // Haomen
-                { name: 'Interstellar JP/KR Massage', price: '$6,588' },
-                { name: 'JP/KR Massage', price: '$5,988' },
-                { name: 'Super Deluxe Massage', price: '$5,288' },
-                { name: 'European Massage', price: '$4,988' },
-                { name: 'Star Super Massage', price: '$4,388' },
-                { name: 'Star Style Massage', price: '$3,988' },
-                { name: 'Star Vietnamese Massage', price: '$3,988' },
-                { name: 'Asian Style Massage', price: '$3,988' },
-                { name: 'Vietnamese Massage', price: '$2,988' },
-                { name: 'Shanghai Massage', price: '$2,188' },
-                { name: 'Healthy Finnish Bath', price: '$1,788' }
+                { name: 'Star Model JP/KR Massage (60min)', price: '$7,188' },
+                { name: 'JP/KR Massage (60min)', price: '$6,388' },
+                { name: 'Super Star Massage (60min)', price: '$5,588' },
+                { name: 'European Massage (60min)', price: '$5,088' },
+                { name: 'Star Model Style Massage (60min)', price: '$4,888' },
+                { name: 'Vietnam Star Massage (60min)', price: '$4,488' },
+                { name: 'Asian Style Massage (60min)', price: '$4,388' },
+                { name: 'Vietnam Style Massage (60min)', price: '$3,688' },
+                { name: 'Shanghai Massage (90min)', price: '$2,588' },
+                { name: 'Healthy Sauna (12 hours)', price: '$1,988' }
             ],
             'kx': [ // Triumph
-                { name: 'Net Sauna', price: '$1,888' },
-                { name: 'Shanghai Style', price: '$2,298' },
-                { name: 'Eastern Model (2XX)', price: '$2,998' },
-                { name: 'Eastern Super Model (3XX)', price: '$3,698' },
-                { name: 'Super Model (5/6XX)', price: '$3,698' },
-                { name: 'Talent (8XX)', price: '$4,398' },
-                { name: 'Asian (10XX)', price: '$4,998' },
-                { name: 'Euro/US Model (9XX)', price: '$4,298' },
-                { name: 'Korean Model (7XX)', price: '$5,598' },
-                { name: 'Japanese Model (7XX)', price: '$5,798' }
+                { name: 'South Asian style (2XX)', price: '$3,298' },
+                { name: 'Southeast Asian model (3XX)', price: '$3,998' },
+                { name: 'Arc de Triomphe (6XX)', price: '$3,998' },
+                { name: 'Beauty (8XX)', price: '$4,798' },
+                { name: 'Loli (80XX)', price: '$4,998' },
+                { name: 'Asia (10XX)', price: '$5,298' },
+                { name: 'Euro/US Model (9XX)', price: '$4,698' },
+                { name: 'Korea Model (7XX)', price: '$5,998' },
+                { name: 'Japanese Model (7XX)', price: '$5,998' }
             ],
             'mc': [ // MCLUB
-                { name: 'Entrance Fee (12h)', price: '$1,568' },
-                { name: 'Aroma Spa (80min)', price: '$2,199' },
-                { name: 'Free Style Spa', price: '$2,998' },
-                { name: 'Special Theme Spa', price: '$3,398' },
-                { name: 'Noble Theme Spa', price: '$3,798' },
-                { name: 'European Theme Spa', price: '$4,198' },
-                { name: 'Premium Theme Spa', price: '$4,298' },
-                { name: 'Grand Asia Theme Spa', price: '$4,698' },
-                { name: 'Japan Style Theme Spa', price: '$5,764' }
+                { name: 'Entrance Fee (12 hours)', price: '$1,738' },
+                { name: 'Aroma Spa (80min)', price: '$2,398' },
+                { name: 'Star Spa (50min)', price: '$3,398' },
+                { name: 'Saturn Spa (50min)', price: '$3,898' },
+                { name: 'Mars Spa (50min)', price: '$4,298' },
+                { name: 'Mercury Spa (50min)', price: '$4,798' },
+                { name: 'Jupiter Spa (50min)', price: '$5,298' },
+                { name: 'Kol Spa (50min)', price: '$5,798' },
+                { name: 'Europe Spa (50min)', price: '$4,548' },
+                { name: 'JP/KR Star Spa (50min)', price: '$6,198' }
             ],
             'dh_lake': [ // Dihu
                 { name: 'Net Sauna', price: '$1,888' },
@@ -486,6 +484,26 @@
                 { name: 'European Mix', price: '$5,588' }
             ]
         };
+
+        function switchRegion(region, tab) {
+            document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            document.querySelectorAll('.venue-btn').forEach(btn => {
+                if (btn.getAttribute('data-region') === region) {
+                    btn.style.display = 'flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+
+            const visibleBtns = document.querySelectorAll(`.venue-btn[data-region="${region}"]`);
+            if (visibleBtns.length > 0) {
+                visibleBtns[0].classList.add('active');
+                const firstVenue = visibleBtns[0].getAttribute('onclick').match(/'([^']+)'/)[1];
+                updatePriceTable(firstVenue);
+            }
+        }
 
         function updatePriceTable(venue) {
             document.querySelectorAll('.venue-btn').forEach(btn => btn.classList.remove('active'));
@@ -514,7 +532,7 @@
 
         // Initialize with default view
         document.addEventListener('DOMContentLoaded', () => {
-            // Logic handled in carousel.js
+            updatePriceTable('dd');
         });
     </script>
     <script src="js/carousel.js"></script>
