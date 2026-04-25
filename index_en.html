@@ -12,7 +12,12 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macau Sauna Official Discount Website</title>
+    <meta name="description" content="Macau Sauna Official - Latest price list for The One, Haomen, Supreme, East Castle, Dihu, Triumph, Noble, MCLUB and more. Free shuttle service, best deals guaranteed.">
+    <meta name="keywords" content="Macau sauna, Macau spa, sauna price Macau, Macau sauna guide, Macau nightlife, best sauna Macau">
+    <meta property="og:title" content="Macau Sauna Official">
+    <meta property="og:description" content="Macau Sauna Official - Latest price list for all Macau saunas. Free shuttle service, best deals guaranteed.">
+    <meta property="og:type" content="website">
+    <title>Macau Sauna Official</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,25 +123,22 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">Service Fees</h2>
-        <div class="venue-carousel">
-            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
-            <div class="venue-mask">
-                <div class="venue-track">
-                    <button class="venue-btn active" onclick="updatePriceTable('dd')">Club 9</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jl')">Shangpin</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yh')">The One</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hb')">East Castle</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jp')">Supreme</button>
-                    <button class="venue-btn" onclick="updatePriceTable('zg')">Noble</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hm')">Haomen</button>
-                    <button class="venue-btn" onclick="updatePriceTable('kx')">Triumph</button>
-                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB</button>
-                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">Dihu</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yu')">Royal</button>
-                </div>
-            </div>
-            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
-            <div class="carousel-dots"></div>
+        <div class="region-tabs">
+            <button class="region-tab active" onclick="switchRegion('macau')">Macau Island (Old)</button>
+            <button class="region-tab" onclick="switchRegion('taipa')">Taipa Island (New)</button>
+        </div>
+        <div class="venue-grid">
+            <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">Club 9</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">The One</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">East Castle</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">Supreme</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">Noble</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">Haomen</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">Triumph</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">Royal</button>
+            <button class="venue-btn" data-region="taipa" style="display:none" onclick="updatePriceTable('jl')">Shangpin</button>
+            <button class="venue-btn" data-region="taipa" style="display:none" onclick="updatePriceTable('dh_lake')">Dihu</button>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -150,6 +152,48 @@
                     <!-- Content will be populated by JS -->
                 </tbody>
             </table>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h3 class="faq-title">FAQ</h3>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How to book a Macau sauna?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">Contact us via WeChat (Allinmacau) or LINE, tell us your group size and preferences, and we'll arrange a free shuttle service.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Does the price include all costs?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">Some venues charge an additional 10% government tax. Booking through us gives you an $800 discount, making it cheaper than walk-in prices.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Is there free shuttle service?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">Yes! We provide free shuttle service across Macau, from any location (hotel, border, casino) directly to the sauna venue.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Can I pay by credit card?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">Most venues accept credit cards and WeChat Pay. Some only accept cash (HKD/MOP). Contact us in advance to confirm.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What are the business hours?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">Most Macau saunas operate daily from 3:00 PM to 5:00 AM. Some venues offer 24-hour service.</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -342,6 +386,22 @@
 
             resetInterval();
         });
+
+        // Region Switch Logic
+        function switchRegion(region) {
+            document.querySelectorAll('.region-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.venue-btn[data-region]').forEach(btn => {
+                btn.style.display = (btn.dataset.region === region) ? '' : 'none';
+            });
+
+            const currentActive = document.querySelector('.venue-btn.active[data-region]');
+            if (!currentActive || currentActive.dataset.region !== region) {
+                const firstBtn = document.querySelector(`.venue-btn[data-region="${region}"]`);
+                if (firstBtn) firstBtn.click();
+            }
+        }
 
         // Price Table Logic
         const prices = {

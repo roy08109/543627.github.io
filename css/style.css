@@ -624,7 +624,8 @@ a {
 
 @media (max-width: 480px) {
     .social-bar.social-grid {
-        gap: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
     .social-icon-wrapper img {
         width: 36px;
@@ -633,6 +634,39 @@ a {
     .id-text {
         font-size: 10px;
     }
+    .venue-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .venue-btn {
+        padding: 12px 6px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+    .region-tab {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+    .price-table th, .price-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    .fee-section {
+        padding: var(--spacing-md) 8px;
+    }
+    .hero-title { font-size: 28px; }
+    .section-title { font-size: 24px; }
+    .feature-card { padding: 24px 16px; }
+    .cards-grid { grid-template-columns: 1fr; gap: var(--spacing-md); }
+    .fab-reservation { bottom: 20px; right: 16px; }
+    .fab-reservation .cta-button { padding: 12px 20px; font-size: 13px; }
+    .slideshow-container { margin: 0 8px 40px; }
+    .slide-btn { width: 32px; height: 32px; font-size: 14px; }
+    .slide-btn.prev-btn { left: 8px; }
+    .slide-btn.next-btn { right: 8px; }
+    .slide-caption .promotion-text { font-size: 14px; }
+    .faq-question { padding: 12px 14px; font-size: 13px; }
+    .faq-answer { font-size: 12px; }
 }
 
 .social-icon:hover {
@@ -662,14 +696,21 @@ a {
 @media (max-width: 768px) {
     .hero-title { font-size: 36px; }
     .header { 
-        padding: 0 var(--spacing-sm);
-        flex-direction: column;
-        gap: 10px;
+        padding: 6px var(--spacing-sm);
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 52px;
+        justify-content: center;
+        gap: 6px;
     }
+    .logo-container { font-size: 16px; }
+    .logo-container span { display: none; }
+    .logo { width: 32px; height: 32px; }
     .nav-links { 
-        display: flex; /* Keep visible */
-        gap: 15px;
-        font-size: 14px;
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
         flex-wrap: wrap;
         justify-content: center;
     } 
@@ -683,40 +724,56 @@ a {
     margin: 0 auto;
 }
 
-/* Venue Carousel Styles */
-.venue-carousel {
-    position: relative;
+/* Region Tabs */
+.region-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.region-tab {
+    padding: 10px 28px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    background: rgba(30, 41, 59, 0.5);
+    color: var(--text-secondary);
+    font-family: var(--font-main);
+}
+
+.region-tab:hover {
+    background: rgba(30, 41, 59, 0.8);
+    color: var(--text-main);
+}
+
+.region-tab.active {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+}
+
+/* Venue Grid */
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
     max-width: 700px;
     margin: 0 auto var(--spacing-lg);
-    padding: 0 40px 40px; /* Side padding for arrows, bottom for dots */
-}
-
-.venue-mask {
-    overflow: hidden;
-    /* Mask for fade effect on edges */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-.venue-track {
-    display: flex;
-    /* transition is handled in JS */
-    cursor: grab;
-    align-items: center;
-}
-
-.venue-track:active {
-    cursor: grabbing;
+    padding: 0 10px;
 }
 
 .venue-btn {
-    flex: 0 0 calc(33.333% - 10px);
-    margin: 0 5px;
+    width: 100%;
     background: rgba(30, 41, 59, 0.5);
     border: 1px solid var(--border-light);
     color: var(--text-secondary);
-    padding: 12px 5px;
-    border-radius: var(--border-radius-pill);
+    padding: 14px 8px;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: var(--font-main);
@@ -738,71 +795,11 @@ a {
 }
 
 .venue-btn.active {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--text-main);
     border-color: transparent;
     box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
     transform: scale(1.05);
-}
-
-/* Carousel Arrows */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid var(--border-light);
-    color: var(--text-main);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    margin-top: -20px; /* Adjust for dots padding */
-}
-
-.carousel-arrow:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-}
-
-.carousel-arrow.prev-arrow {
-    left: 0;
-}
-
-.carousel-arrow.next-arrow {
-    right: 0;
-}
-
-.carousel-dots {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 0;
-}
-
-.carousel-dot {
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.carousel-dot.active {
-    background: var(--primary);
-    width: 16px;
-    border-radius: 10px;
 }
 
 .price-table-container {
@@ -844,4 +841,73 @@ a {
 .price-highlight {
     color: var(--accent);
     font-weight: 700;
+}
+
+/* FAQ Section */
+.faq-section {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 0 10px;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+    user-select: none;
+}
+
+.faq-question:hover {
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.faq-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    color: var(--text-muted);
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 200px;
+    padding: 0 20px 14px;
 }

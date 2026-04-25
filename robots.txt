@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-member.html
+Disallow: /BaccaratGame/
+
+Sitemap: https://你的網域.com/sitemap.xml

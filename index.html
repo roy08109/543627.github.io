@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <!-- Google tag (gtag.js) --> 
-    <script async src=" https://www.googletagmanager.com/gtag/js?id=AW-17040215810 "></script> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17040215810"></script> 
     <script> 
       window.dataLayer = window.dataLayer || []; 
       function gtag(){dataLayer.push(arguments);} 
@@ -12,6 +12,11 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="澳門桑拿官方優惠網，提供壹號、豪門、極品、東方皇堡、帝湖、凱旋、尊貴、MCLUB晉會、御桑拿等全澳桑拿最新價目表，免費專車接送，800優惠折扣。">
+    <meta name="keywords" content="澳門桑拿,澳門水療,澳門spa,桑拿預約,澳門桑拿價格,澳門桑拿推薦,澳門桑拿攻略,澳門桑拿接送">
+    <meta property="og:title" content="澳門桑拿官方優惠網">
+    <meta property="og:description" content="澳門桑拿官方優惠網，提供全澳桑拿最新價目表，免費專車接送，800優惠折扣。">
+    <meta property="og:type" content="website">
     <title>澳門桑拿官方優惠網</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,25 +124,22 @@
     <!-- Fee Table Section -->
     <section class="fee-section">
         <h2 class="section-title">服务收费</h2>
-        <div class="venue-carousel">
-            <button class="carousel-arrow prev-arrow" aria-label="Previous">❮</button>
-            <div class="venue-mask">
-                <div class="venue-track">
-                    <button class="venue-btn active" onclick="updatePriceTable('dd')">玖號桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jl')">尚品</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yh')">壹號桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hb')">東方皇堡</button>
-                    <button class="venue-btn" onclick="updatePriceTable('jp')">極品桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('zg')">尊貴水療</button>
-                    <button class="venue-btn" onclick="updatePriceTable('hm')">豪門桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('kx')">凱旋桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('mc')">MCLUB晉會</button>
-                    <button class="venue-btn" onclick="updatePriceTable('dh_lake')">帝湖桑拿</button>
-                    <button class="venue-btn" onclick="updatePriceTable('yu')">御桑拿</button>
-                </div>
-            </div>
-            <button class="carousel-arrow next-arrow" aria-label="Next">❯</button>
-            <div class="carousel-dots"></div>
+        <div class="region-tabs">
+            <button class="region-tab active" onclick="switchRegion('macau')">澳門島（老區）</button>
+            <button class="region-tab" onclick="switchRegion('taipa')">氹仔島（新區）</button>
+        </div>
+        <div class="venue-grid">
+            <button class="venue-btn active" data-region="macau" onclick="updatePriceTable('dd')">玖號桑拿</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yh')">壹號桑拿</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hb')">東方皇堡</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('jp')">極品桑拿</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('zg')">尊貴水療</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('hm')">豪門桑拿</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('kx')">凱旋桑拿</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('mc')">MCLUB晉會</button>
+            <button class="venue-btn" data-region="macau" onclick="updatePriceTable('yu')">御桑拿</button>
+            <button class="venue-btn" data-region="taipa" style="display:none" onclick="updatePriceTable('jl')">尚品</button>
+            <button class="venue-btn" data-region="taipa" style="display:none" onclick="updatePriceTable('dh_lake')">帝湖桑拿</button>
         </div>
         <div class="price-table-container">
             <table class="price-table" id="priceTable">
@@ -151,6 +153,48 @@
                     <!-- Content will be populated by JS -->
                 </tbody>
             </table>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h3 class="faq-title">常見問題</h3>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>如何預約澳門桑拿？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">透過本網站即可預約。聯絡我們的微信 Allinmacau 或 LINE，告知人數和需求，我們會安排免費專車接送。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>價格是否包含所有費用？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">部分場所需另加 10% 政府稅。透過我們預約可享 800 元折扣優惠，實際費用低於現場價格。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>有免費接送嗎？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">是的！我們提供澳門全境免費專車接送服務，從任何地點（酒店、口岸、娛樂場）直達桑拿場館。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>可以刷卡嗎？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">大部分桑拿場館支援信用卡及微信支付，部分場館僅收現金（港幣/澳門幣），建議出發前與我們確認。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>桑拿營業時間是？</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">澳門桑拿一般營業時間為每日下午 15:00 至次日凌晨 5:00，部分場館提供 24 小時服務。</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -172,7 +216,7 @@
                 <a href="macau-sauna-detail.html" class="feature-link">了解更多 &rarr;</a>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">�</div>
+                <div class="feature-icon">📋</div>
                 <h3 class="feature-title">服務流程</h3>
                 <p class="feature-desc">了解我們專業的服務步驟與細節。</p>
                 <a href="service_flow.html" class="feature-link">了解更多 &rarr;</a>
@@ -265,7 +309,7 @@
         </div>
         <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 14px;">
             <p>© 2025 543627 版權所有分享澳門桑拿、澳門spa、澳门水療</p>
-            <p style="font-size: 12px; opacity: 0.6;">壹號桑拿，豪門桑拿，尊貴水療，帝湖水療，極品桑拿，東方皇堡，十八桑拿，澳門晉會桑拿</p>
+            <p style="font-size: 12px; opacity: 0.6;">壹號桑拿，豪門桑拿，尊貴水療，帝湖水療，極品桑拿，東方皇堡，尚品桑拿，MCLUB晉會，凱旋桑拿，御桑拿，玖號桑拿</p>
         </div>
     </footer>
     
@@ -343,6 +387,22 @@
 
             resetInterval();
         });
+
+        // Region Switch Logic
+        function switchRegion(region) {
+            document.querySelectorAll('.region-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.venue-btn[data-region]').forEach(btn => {
+                btn.style.display = (btn.dataset.region === region) ? '' : 'none';
+            });
+
+            const currentActive = document.querySelector('.venue-btn.active[data-region]');
+            if (!currentActive || currentActive.dataset.region !== region) {
+                const firstBtn = document.querySelector(`.venue-btn[data-region="${region}"]`);
+                if (firstBtn) firstBtn.click();
+            }
+        }
 
         // Price Table Logic
         const prices = {
